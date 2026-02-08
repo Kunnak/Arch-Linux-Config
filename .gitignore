@@ -1,0 +1,22 @@
+# Keine sensiblen Daten
+*.key
+*.pem
+*.password
+secrets/
+
+# Keine Cache-Dateien
+.cache/
+*.cache
+__pycache__/
+
+# Keine Logs
+*.log
+
+# Keine temporären Dateien
+*.tmp
+*.swp
+*~
+
+# OS-spezifisch
+.DS_Store
+Thumbs.db
