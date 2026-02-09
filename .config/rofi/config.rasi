@@ -1,0 +1,32 @@
+/*
+#  ____        __ _  
+# |  _ \ ___  / _(_) 
+# | |_) / _ \| |_| | 
+# |  _ < (_) |  _| | 
+# |_| \_\___/|_| |_| 
+#                    
+# Gruvbox Dark - Eigenständige Config
+# ----------------------------------------------------- 
+*/
+
+configuration {
+    modi:                "drun,run,window";
+    font:                "Ubuntu Nerd Font 12";
+    show-icons:          true;
+    icon-theme:          "Papirus";
+    display-drun:        "󰆲 ";
+    display-run:         "󰌧 ";
+    display-window:      "󰖯 ";
+    drun-display-format: "{name}";
+    hover-select:        false;
+    scroll-method:       1;
+    me-select-entry:     "";
+    me-accept-entry:     "MousePrimary";
+    window-format:       "{w} · {c} · {t}";
+    terminal:            "kitty";
+    location:            0;
+    disable-history:     false;
+    hide-scrollbar:      false;
+}
+
+@theme "~/.config/rofi/gruvbox-dark.rasi"

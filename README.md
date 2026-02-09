@@ -1,26 +1,22 @@
 # Arch Linux Config
 
-Meine persönliche Hyprland-Konfiguration.
+Meine persönliche Hyprland-Konfiguration mit Gruvbox Theme.
 
 ## Enthaltene Komponenten
 
-- **Hyprland**: Window Manager
-- **Waybar**: Status Bar (Gruvbox Theme)
-- **Rofi**: App Launcher (Gruvbox Theme)
-- **Kitty**: Terminal
+- **hypr/** - Window Manager
+- **waybar/** - Status Bar
+- **rofi/** - App Launcher
+- **kitty/** - Terminal
+- **nvim/** & **vim/** - Editoren
+- **wlogout/** - Logout Menu
+- **autostart/** - Autostart-Apps
 
 ## Installation
 
 ```bash
-# Backup erstellen
-mv ~/.config/hypr ~/.config/hypr.backup
-mv ~/.config/waybar ~/.config/waybar.backup
-mv ~/.config/rofi ~/.config/rofi.backup
-
-# Configs kopieren
-cp -r .config/hypr ~/.config/
-cp -r .config/waybar ~/.config/
-cp -r .config/rofi ~/.config/
-
-# Neuladen
+git clone https://github.com/Kunnak/Arch-Linux-Config.git
+cd Arch-Linux-Config
+cp -r .config/* ~/.config/
+cp .bashrc ~/
 hyprctl reload
