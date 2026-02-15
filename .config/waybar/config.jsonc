@@ -8,7 +8,7 @@
     "margin-right": 10,
     
     "modules-left": ["hyprland/workspaces"],
-    "modules-center": [],
+    "modules-center": ["wlr/taskbar"],
     "modules-right": [
         "custom/weather",
         "cpu",
@@ -37,14 +37,22 @@
         }
     },
 
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "close",
+        "on-click-right": "minimize",
+        "ignore-list": ["wlogout", "waybar"]
+    },
+
     // Wetter-Modul
     "custom/weather": {
-        "exec": "curl -s 'wttr.in/?format=%c+%t' 2>/dev/null || echo '󰖐 N/A'",
+        "exec": "~/.config/waybar/weather.sh",
+        "return-type": "json",
         "interval": 600,
         "format": "{}",
-        "tooltip": true,
-        "tooltip-format": "Wetter-Details",
-        "on-click": "kitty curl wttr.in"
+        "tooltip": true
     },
 
     // CPU Auslastung

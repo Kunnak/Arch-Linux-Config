@@ -7,7 +7,6 @@ SCREEN_WIDTH=$(xdpyinfo | awk '/dimensions/{print $2}' | cut -d'x' -f1)
 CAL_WIDTH=280
 
 # Position: Rechts unter dem Datum-Modul
-# Bei Ultra-Wide ist das Datum ca. 200-300px vom rechten Rand
 POS_X=$((SCREEN_WIDTH - CAL_WIDTH - 100))
 POS_Y=50
 
