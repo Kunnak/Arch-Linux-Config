@@ -1,0 +1,23 @@
+# -----------------------------------------------------
+# AUTOSTART (aus deiner Bash-Config)
+# -----------------------------------------------------
+
+# The 'finder' command (Fuzzy Finder)
+finder() {
+    local result=$($HOME/.config/ml4w/bin/ml4w-finder.sh)
+    if [[ "$result" == TYPE_DIR:* ]]; then
+        local target_dir="${result#TYPE_DIR:}"
+        cd "$target_dir" && ls
+    fi
+}
+
+# Fastfetch
+if [[ $(tty) == *"pts"* ]]; then
+    fastfetch
+fi
+
+# -----------------------------------------------------
+# Prompt (deine bestehende Config)
+# -----------------------------------------------------
+eval "$(oh-my-posh init zsh --config $HOME/.config/oh-my-posh/zen.toml)"
+
