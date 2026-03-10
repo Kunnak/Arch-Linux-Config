@@ -1,0 +1,137 @@
+* {
+    /* Gruvbox Dark Farben */
+    bg:     #282828;
+    bg0:    #282828;
+    bg1:    #3c3836;
+    bg2:    #504945;
+    bg3:    #665c54;
+    bg4:    #7c6f64;
+    
+    fg:     #ebdbb2;
+    fg0:    #fbf1c7;
+    fg1:    #ebdbb2;
+    fg2:    #d5c4a1;
+    fg3:    #bdae93;
+    fg4:    #a89984;
+    
+    red:            #cc241d;
+    red-bright:     #fb4934;
+    green:          #98971a;
+    green-bright:   #b8bb26;
+    yellow:         #d79921;
+    yellow-bright:  #fabd2f;
+    blue:           #458588;
+    blue-bright:    #83a598;
+    purple:         #b16286;
+    purple-bright:  #d3869b;
+    aqua:           #689d6a;
+    aqua-bright:    #8ec07c;
+    orange:         #d65d0e;
+    orange-bright:  #fe8019;
+    gray:           #928374;
+    gray-bright:    #a89984;
+    
+    background-color:   @bg;
+    text-color:         @fg;
+}
+
+/* ---- Fenster ---- */
+window {
+    width:              600px;
+    height:             400px;
+    border:             2px;
+    border-color:       @bg3;
+    border-radius:      12px;
+    background-color:   @bg;
+    padding:            20px;
+    location:           center;
+    anchor:             center;
+}
+
+/* ---- Hauptbox ---- */
+mainbox {
+    background-color:   transparent;
+    children:           [ inputbar, listview ];
+    spacing:            15px;
+}
+
+/* ---- Eingabezeile ---- */
+inputbar {
+    background-color:   @bg1;
+    border-radius:      8px;
+    padding:            12px 16px;
+    children:           [ prompt, entry ];
+    spacing:            12px;
+}
+
+prompt {
+    background-color:   transparent;
+    text-color:         @yellow-bright;
+    font:               "JetBrainsMono Nerd Font 14";
+}
+
+entry {
+    background-color:   transparent;
+    text-color:         @fg0;
+    placeholder:        "Suchen...";
+    placeholder-color:  @gray;
+    cursor:             text;
+}
+
+/* ---- Liste ---- */
+listview {
+    background-color:   transparent;
+    columns:            1;
+    lines:              8;
+    spacing:            5px;
+    fixed-height:       false;
+    dynamic:            true;
+    scrollbar:          true;
+}
+
+/* ---- Elemente ---- */
+element {
+    background-color:   transparent;
+    padding:            10px 16px;
+    border-radius:      8px;
+    spacing:            12px;
+}
+
+element-icon {
+    background-color:   transparent;
+    size:               24px;
+}
+
+element-text {
+    background-color:   transparent;
+    text-color:         @fg;
+    vertical-align:     0.5;
+}
+
+/* Ausgewählt */
+element selected {
+    background-color:   @bg2;
+    border:             1px;
+    border-color:       @yellow;
+}
+
+element-text selected {
+    text-color:         @yellow-bright;
+}
+
+/* ---- Scrollbar ---- */
+scrollbar {
+    background-color:   @bg1;
+    border-radius:      4px;
+    width:              8px;
+    padding:            0;
+}
+
+scrollbar handle {
+    background-color:   @bg3;
+    border-radius:      4px;
+}
+
+scrollbar handle hover {
+    background-color:   @yellow;
+}

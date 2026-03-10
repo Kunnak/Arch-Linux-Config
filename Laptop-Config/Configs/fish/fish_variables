@@ -1,0 +1,22 @@
+# This file contains fish universal variable definitions.
+# VERSION: 3.0
+SETUVAR __fish_initialized:4300
+SETUVAR fish_autosuggestion_enabled:0
+SETUVAR fish_color_autosuggestion:665c54
+SETUVAR fish_color_command:ebdbb2
+SETUVAR fish_color_comment:928374
+SETUVAR fish_color_cwd:d65d0e
+SETUVAR fish_color_end:928374
+SETUVAR fish_color_error:fb4934
+SETUVAR fish_color_escape:d65d0e
+SETUVAR fish_color_normal:ebdbb2
+SETUVAR fish_color_operator:fabd2f
+SETUVAR fish_color_option:fe8019
+SETUVAR fish_color_param:83a598
+SETUVAR fish_color_quote:b8bb26
+SETUVAR fish_color_redirection:d3869b
+SETUVAR fish_color_valid_path:83a598
+SETUVAR fish_color_var:83a598
+SETUVAR fish_complete_path:/home/yannick/\x2econfig/fish/completions\x1e/etc/fish/completions\x1e/home/yannick/\x2elocal/share/fish/vendor_completions\x2ed\x1e/home/yannick/\x2elocal/share/flatpak/exports/share/fish/vendor_completions\x2ed\x1e/var/lib/flatpak/exports/share/fish/vendor_completions\x2ed\x1e/usr/local/share/fish/vendor_completions\x2ed\x1e/usr/share/fish/vendor_completions\x2ed\x1e/home/yannick/\x2ecache/fish/generated_completions
+SETUVAR fish_fuzzy_match:1
+SETUVAR fish_greeting:

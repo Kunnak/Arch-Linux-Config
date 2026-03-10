@@ -1,0 +1,9 @@
+# -----------------------------------------------------
+# CUSTOMIZATION
+# -----------------------------------------------------
+
+# Oh My Posh
+#export POSH_THEME="$HOME/.config/oh-my-posh/jandedobbeleer.omp.json"
+export POSH_THEME="$HOME/.config/oh-my-posh/windowsconfig.omp.json"
+
+eval "$(oh-my-posh init bash --config "$POSH_THEME")"
