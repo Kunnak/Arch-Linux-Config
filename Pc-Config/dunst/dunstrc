@@ -1,0 +1,75 @@
+[global]
+    # Position
+    origin = top-right
+    offset = (12, 12)
+    monitor = 1
+    follow = none
+
+    # Größe
+    width = 320
+    height = (0, 120)
+    padding = 14
+    horizontal_padding = 16
+
+    # Schrift & Format
+    font = Ubuntu Nerd Font 11
+    markup = yes
+    format = "<b>%s</b>\n%b"
+    alignment = center
+    word_wrap = yes
+
+    # Rahmen
+    corner_radius = 12
+    frame_color = "#ffffff18"
+
+    # Transparenz
+    transparency = 20
+
+    # Icons
+    icon_position = left
+    min_icon_size = 32
+    max_icon_size = 48
+
+    # Separator
+    separator_height = 1
+    separator_color = "#ffffff15"
+    line_height = 3
+
+    # Duplikate stapeln
+    stack_duplicates = yes
+    hide_duplicate_count = yes
+
+    # Historie
+    sticky_history = yes
+    history_length = 15
+
+    # Sonstiges
+    show_indicators = no
+    timeout = 5
+
+    # Shortcuts (neue Syntax)
+    close = ctrl+space
+    close_all = ctrl+shift+space
+    history = ctrl+grave
+    context = ctrl+shift+period
+
+[urgency_low]
+    background = "#0d1117cc"
+    foreground = "#4591d6"
+    highlight = "#4591d6"
+    frame_color = "#4591d6"
+    timeout = 4
+#4591f6
+[urgency_normal]
+    background = "#0d1117cc"
+    foreground = "#b6b926"
+    highlight = "#b6b926"
+    frame_color = "#b6b926"
+    timeout = 6
+
+[urgency_critical]
+    background = "#0d1117cc"
+    foreground = "#e44230"
+    highlight = "#e44230"
+    frame_color = "#e44230"
+    timeout = 0

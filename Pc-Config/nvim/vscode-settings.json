@@ -1,0 +1,37 @@
+{
+    "vscode-neovim.neovimExecutablePaths.win32": "nvim",
+    "vscode-neovim.neovimInitVimPaths.win32": "C:\\Users\\Yannick\\AppData\\Local\\nvim\\vscode-init.lua",
+    "vscode-neovim.useCtrlKeysForNormalMode": true,
+    "vscode-neovim.useCtrlKeysForInsertMode": false,
+    "editor.lineNumbers": "relative",
+    "editor.cursorSurroundingLines": 8,
+    "editor.scrollBeyondLastLine": false,
+    "workbench.editor.enablePreview": false,
+    "keyboard.dispatch": "keyCode",
+    "editor.find.autoFindInSelection": "never",
+    "xml.validation.enabled": true,
+    "xml.completion.autoCloseTags": true,
+    "editor.minimap.enabled": false,
+    "editor.renderWhitespace": "none",
+    "workbench.activityBar.visible": true,
+    "workbench.statusBar.visible": true,
+    "editor.fontFamily": "'UbuntuMono Nerd Font', 'Cascadia Code', 'Courier New', monospace",
+    "editor.fontSize": 16,
+    "terminal.integrated.fontFamily": "'UbuntuMono Nerd Font', 'Cascadia Code'",
+    "vscode-neovim.highlightGroups.highlights": {
+        "IncSearch": {
+            "backgroundColor": "#fabd2f",
+            "color": "#1d2021"
+        },
+        "Search": {
+            "backgroundColor": "#fe8019",
+            "color": "#1d2021"
+        }
+    },
+    "vscode-neovim.useWSL": false,
+    "vscode-neovim.compositeKeys": {
+        "jj": {
+            "command": "vscode-neovim.escape"
+        }
+    }
+}

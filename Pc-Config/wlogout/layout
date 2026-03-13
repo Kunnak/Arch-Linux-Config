@@ -28,3 +28,9 @@
     "text" : "Power Off",
     "keybind" : "s"
 }
+{
+    "label" : "exit",
+    "action" : "",
+    "text" : "Exit",
+    "keybind" : "c"
+}

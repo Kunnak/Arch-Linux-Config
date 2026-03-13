@@ -13,6 +13,7 @@
         "custom/weather",
         "cpu",
         "temperature",
+        "custom/gpu",
         "network",
         "pulseaudio",
         "pulseaudio#microphone",
@@ -72,9 +73,18 @@
         "tooltip": true
     },
 
+    // GPU Temperatur
+    "custom/gpu": {
+        "exec": "nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits",
+        "format": "󰢮 {}°C",
+        "interval": 2,
+        "tooltip": true,
+        "tooltip-format": "GPU Temperatur"
+    },
+
     // Netzwerk
     "network": {
-        "interface": "wlan0",
+        "interface": "enp42s0",
         "format-wifi": "󰤨 {essid} ({signalStrength}%)",
         "format-ethernet": "󰈀 {ipaddr}",
         "format-disconnected": "󰤭 Offline",

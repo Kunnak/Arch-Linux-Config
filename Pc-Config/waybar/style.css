@@ -98,7 +98,7 @@ window#waybar {
 }
 
 /* ============================================
-   TASKBAR (neu)
+   TASKBAR
    ============================================ */
 
 #taskbar {
@@ -130,7 +130,7 @@ window#waybar {
 }
 
 /* ============================================
-   WORKSPACES (Links)
+   WORKSPACES
    ============================================ */
 
 .modules-left > widget:first-child > #workspaces {

@@ -1,0 +1,155 @@
+{
+    "suggest.noselect": true,
+    "suggest.enablePreview": false,
+    "suggest.enablePreselect": false,
+    "suggest.maxCompleteItemCount": 20,
+    "suggest.autoTrigger": "always",
+    "suggest.triggerAfterInsertEnter": false,
+    "suggest.floatEnable": true,
+    "suggest.detailMaxLength": 100,
+    "suggest.snippetIndicator": "►",
+    "suggest.minTriggerInputLength": 1,
+    "suggest.acceptSuggestionOnCommitCharacter": true,
+    "suggest.lowPrioritySourceLimit": 5,
+    "suggest.highPrioritySourceLimit": 10,
+    "suggest.removeDuplicateItems": true,
+    "suggest.localityBonus": true,
+    
+    "suggest.pumFloatConfig": {
+        "border": true,
+        "rounded": true,
+        "shadow": false,
+        "highlight": "CocFloating",
+        "borderHighlight": "CocFloatingBorder"
+    },
+    
+    "suggest.formatItems": ["abbr", "kind", "menu"],
+    "suggest.labelMaxLength": 60,
+    "suggest.timeout": 300,
+    "suggest.triggerCompletionWait": 50,
+    
+    "coc.preferences.extensionUpdateCheck": "daily",
+    "coc.preferences.useQuickfixForLocations": true,
+    "workspace.ignoredFolders": ["$HOME/.cargo/**", "**/.git", "**/node_modules/**"],
+    
+    "list.autoResize": false,
+    "list.maxHeight": 12,
+    
+    "hover.autoHide": true,
+    "hover.target": "float",
+    "signature.target": "float",
+    "signature.hideOnTextChange": true,
+    
+    "java.enabled": true,
+    "java.home": "",
+    "java.configuration.runtimes": [],
+    
+    "typescript.enabled": true,
+    "javascript.enabled": true,
+    "html.enabled": true,
+    "css.enabled": true,
+    "json.enabled": true,
+    "yaml.enabled": true,
+    "xml.enabled": true,
+    "lua.enabled": true,
+    
+    "suggest.completionItemKindLabels": {
+        "text": "    󰉿",
+        "method": "    󰆧",
+        "function": "    󰊕",
+        "constructor": "     ",
+        "field": "    󰜢",
+        "variable": "    󰀫",
+        "class": "    󰠱",
+        "interface": "     ",
+        "module": "     ",
+        "property": "    󰜢",
+        "unit": "    󰑭",
+        "value": "    󰎠",
+        "enum": "    ",
+        "keyword": "    󰌋",
+        "snippet": "     ",
+        "color": "    󰏘",
+        "file": "    󰈚",
+        "reference": "    󰈇",
+        "folder": "    󰉋",
+        "enumMember": "     ",
+        "constant": "    󰏿",
+        "struct": "    󰙅",
+        "event": "     ",
+        "operator": "    󰆕",
+        "typeParameter": "     ",
+        "default": "    󰟢"
+    },
+    
+    "diagnostic.messageTarget": "echo",
+    "diagnostic.signOffset": 9999999,
+    "diagnostic.errorSign": "✖",
+    "diagnostic.warningSign": "⚠",
+    "diagnostic.infoSign": "ℹ",
+    "diagnostic.hintSign": "➤",
+    "diagnostic.virtualText": true,
+    "diagnostic.virtualTextCurrentLineOnly": false,
+    "diagnostic.virtualTextPrefix": " | ● ",
+    "diagnostic.virtualTextLines": 3,
+    "diagnostic.virtualTextLineSeparator": " \\ ",
+    "diagnostic.showDeprecated": true,
+    "diagnostic.autoRefresh": true,
+    "diagnostic.refreshOnInsertMode": false,
+    
+    "coc.preferences.formatOnSaveFiletypes": [],
+    
+    "prettier.tabWidth": 4,
+    "prettier.useTabs": false,
+    "prettier.printWidth": 200,
+    "prettier.semi": true,
+    "prettier.singleQuote": false,
+    "prettier.trailingComma": "es5",
+    
+    "typescript.format.tabSize": 4,
+    "typescript.format.insertSpaceAfterCommaDelimiter": true,
+    "typescript.format.insertSpaceAfterSemicolonInForStatements": true,
+    "typescript.preferences.includePackageJsonAutoImports": "off",
+    
+    "javascript.format.tabSize": 4,
+    "javascript.format.insertSpaceAfterCommaDelimiter": true,
+    "javascript.format.insertSpaceAfterSemicolonInForStatements": true,
+    
+    "html.format.tabSize": 4,
+    "html.format.wrapLineLength": 200,
+    "html.format.indentInnerHtml": true,
+    
+    "css.format.spaceAroundSelectorSeparator": true,
+    "css.format.braceStyle": "expand",
+    
+    "json.format.tabSize": 4,
+    "yaml.format.tabWidth": 4,
+    
+    "java.format.settings.profile": "custom",
+    "java.format.settings.url": "",
+    "java.format.enabled": true,
+    
+    "languageserver": {
+        "lua": {
+            "command": "lua-language-server",
+            "filetypes": ["lua"]
+        }
+    },
+    
+    "coc.source.buffer.priority": 3,
+    "coc.source.around.priority": 2, 
+    "coc.source.file.priority": 4,
+    "coc.source.snippets.priority": 5,
+    "coc.source.word.priority": 1,
+    "languageserver.priority": 9,
+    "tsserver.priority": 9,
+    "java.priority": 9,
+    "html.priority": 9,
+    "css.priority": 9,
+    "json.priority": 9,
+    "yaml.priority": 9,
+    "xml.priority": 9,
+    "lua.priority": 9,
+    
+    "snippets.ultisnips.pythonPrompt": false
+}
