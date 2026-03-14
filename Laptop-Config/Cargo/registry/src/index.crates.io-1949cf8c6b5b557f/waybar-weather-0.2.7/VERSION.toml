@@ -1,0 +1,16 @@
+version = "0.2.4"
+
+[[files]]
+file = "Cargo.toml"
+expr = 'version = "(.*)"'
+
+[package.waybar-weather]
+version = "0.2.7"
+
+[[package.waybar-weather.files]]
+file = "Cargo.toml"
+expr = 'version = "(.*)"'
+
+[[package.waybar-weather.files]]
+file = "PKGBUILD"
+expr = "pkgver=(.*)"

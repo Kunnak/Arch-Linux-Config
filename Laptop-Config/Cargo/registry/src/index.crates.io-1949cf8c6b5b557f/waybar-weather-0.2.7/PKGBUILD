@@ -1,0 +1,41 @@
+# Maintainer: BaconIsAVeg <baconisaveg@fastmail.ca>
+
+pkgname=waybar-weather
+pkgver=0.2.7
+pkgrel=1
+pkgdesc="A waybar module to display the current weather using the OpenWeatherMap API"
+arch=('x86_64')
+url="https://gitlab.com/baconisaveg/waybar-weather"
+license=('MIT')
+depends=(
+    'gcc-libs'
+    'glibc'
+)
+optdepends=('waybar')
+makedepends=('cargo')
+source=("$pkgname-$pkgver.tar.gz::https://gitlab.com/baconisaveg/$pkgname/-/archive/$pkgver/$pkgname-$pkgver.tar.gz")
+options=(!lto)
+sha256sums=('SKIP')
+
+build() {
+    cd "$pkgname-$pkgver"
+
+    export RUSTUP_TOOLCHAIN=stable
+    export CARGO_TARGET_DIR=target
+    cargo build --frozen --release --all-features
+}
+
+check() {
+    export RUSTUP_TOOLCHAIN=stable
+    cargo test --frozen --all-features
+}
+
+package() {
+    cd "$pkgname-$pkgver"
+
+    install -Dm755 "target/release/waybar-weather" "$pkgdir/usr/bin/waybar-weather"
+
+    install -Dm644 "docs/config.yaml" "$pkgdir/usr/share/doc/${pkgname}/config.yaml"
+    install -Dm644 "README.md" "$pkgdir/usr/share/doc/${pkgname}/README.md"
+    install -Dm644 "docs/LICENSE" "$pkgdir/usr/share/licenses/${pkgname}/LICENSE"
+}

@@ -1,0 +1,51 @@
+[package]
+name = "cli-settings-derive"
+version = "0.3.2"
+edition = "2021"
+description = "Manage CLI settings with configuration file(s) and command line parsing, using serde and clap"
+documentation = "https://docs.rs/cli-settings-derive"
+keywords = ["clap", "serde", "derive", "config", "setting"]
+categories = ["command-line-interface"]
+license = "MIT"
+repository = "https://github.com/mic006/cli-settings-derive"
+
+[lib]
+proc-macro = true
+
+[dependencies]
+anyhow = "1.0.89"
+clap = { version = "4.5.19", features = ["derive"] }
+proc-macro2 = "1.0.86"
+quote = "1.0.37"
+serde = { version = "1.0.210", features = ["derive"] }
+serde_with = { version = "3.10.0", default-features = false, features = [
+    "macros",
+] }
+serde_yaml = "0.9.34"
+syn = "2.0.79"
+
+[dev-dependencies]
+log = "0.4.22"
+macrotest = "1.0.13"
+syn = { version = "2.0.79", features = ["full", "extra-traits"] }
+
+[lints.rust]
+warnings = "warn"
+future-incompatible = "warn"
+let-underscore = "warn"
+nonstandard-style = "warn"
+rust-2018-idioms = "warn"
+unused = { level = "warn", priority = -1 }
+unsafe_code = "deny"
+dead_code = "deny"
+
+[lints.clippy]
+all = { level = "deny", priority = -1 }
+pedantic = { level = "deny", priority = -1 }
+cargo = { level = "deny", priority = -1 }
+# disable some **too** pedantic lints
+module_name_repetitions = "allow"
+needless_pass_by_value = "allow"
+similar_names = "allow"
+needless_doctest_main = "allow"
+multiple_crate_versions = "allow"

@@ -1,0 +1,135 @@
+{
+    "ui5": {
+        "ui5linter": {
+            "severity": {
+                "WrongParametersLinter": "Error",
+                "WrongOverrideLinter": "Error",
+                "WrongImportLinter": "Warning",
+                "WrongFilePathLinter": "Warning",
+                "WrongFieldMethodLinter": "Warning",
+                "WrongClassNameLinter": "Warning",
+                "UnusedTranslationsLinter": "Information",
+                "UnusedNamespaceLinter": "Error",
+                "UnusedMemberLinter": "Information",
+                "TagLinter": "Information",
+                "TagAttributeLinter": "Information",
+                "TagAttributeDefaultValueLinter": "Information",
+                "PublicMemberLinter": "Information",
+                "InterfaceLinter": "Error",
+                "AbstractClassLinter": "Error",
+                "UnusedClassLinter": "Error",
+                "WrongNamespaceLinter": "Warning",
+                "DuplicateTranslationLinter": "Error",
+                "EventTypeLinter": "Error"
+            },
+            "usage": {
+                "WrongParametersLinter": true,
+                "WrongOverrideLinter": true,
+                "WrongImportLinter": true,
+                "WrongFilePathLinter": true,
+                "WrongFieldMethodLinter": false,
+                "WrongClassNameLinter": true,
+                "UnusedTranslationsLinter": true,
+                "UnusedNamespaceLinter": true,
+                "UnusedMemberLinter": true,
+                "TagLinter": true,
+                "TagAttributeLinter": true,
+                "TagAttributeDefaultValueLinter": true,
+                "PublicMemberLinter": true,
+                "InterfaceLinter": true,
+                "AbstractClassLinter": true,
+                "UnusedClassLinter": true,
+                "WrongNamespaceLinter": true,
+                "DuplicateTranslationLinter": true,
+                "EventTypeLinter": true
+            },
+            "jsLinterExceptions": [
+                {
+                    "className": "sap.ui.core.Element",
+                    "memberName": "getDomRef",
+                    "applyToChildren": true
+                },
+                {
+                    "className": "sap.ui.model.json.JSONModel",
+                    "memberName": "iSizeLimit",
+                    "applyToChildren": true
+                },
+                {
+                    "className": "sap.ui.model.Binding",
+                    "memberName": "*"
+                },
+                {
+                    "className": "sap.ui.model.Model",
+                    "memberName": "*"
+                },
+                {
+                    "className": "sap.ui.core.Element",
+                    "memberName": "*"
+                },
+                {
+                    "className": "sap.ui.base.ManagedObject",
+                    "memberName": "*"
+                },
+                {
+                    "className": "sap.ui.core.Control",
+                    "memberName": "*"
+                },
+                {
+                    "className": "sap.ui.xmlfragment",
+                    "memberName": "*"
+                },
+                {
+                    "className": "*",
+                    "memberName": "byId"
+                },
+                {
+                    "className": "*",
+                    "memberName": "prototype"
+                },
+                {
+                    "className": "*",
+                    "memberName": "call"
+                },
+                {
+                    "className": "*",
+                    "memberName": "apply"
+                },
+                {
+                    "className": "*",
+                    "memberName": "bind"
+                },
+                {
+                    "className": "*",
+                    "memberName": "constructor"
+                },
+                {
+                    "className": "*",
+                    "memberName": "init"
+                },
+                {
+                    "className": "*",
+                    "memberName": "exit"
+                },
+                {
+                    "className": "map",
+                    "memberName": "*"
+                }
+            ],
+            "jsClassExceptions": [],
+            "xmlClassExceptions": [],
+            "propertiesLinterExceptions": [],
+            "componentsToInclude": [],
+            "componentsToExclude": [],
+            "idNamingPattern": "^id{MeaningAssumption}.*{ControlName}$",
+            "eventNamingPattern": "^on{MeaningAssumption}{ControlName}.*?{EventName}$",
+            "attributesToCheck": [
+                "content",
+                "items",
+                "value",
+                "text",
+                "number"
+            ]
+        }
+    }
+}
+ 

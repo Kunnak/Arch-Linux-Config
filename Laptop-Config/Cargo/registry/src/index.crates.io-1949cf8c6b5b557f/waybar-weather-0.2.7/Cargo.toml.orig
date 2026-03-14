@@ -1,0 +1,27 @@
+[package]
+name = "waybar-weather"
+version = "0.2.7"
+edition = "2021"
+authors = ["BaconIsAVeg <baconisaveg@fastmail.ca>"]
+keywords = ["weather", "utility", "waybar"]
+description = "A waybar module to display the current weather using the OpenWeatherMap API"
+license = "MIT"
+repository = "https://gitlab.com/baconisaveg/waybar-weather"
+
+[dependencies]
+openweathermap = "0.2.4"
+clap = { version = "4.2", features = ["derive"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+cli-settings-derive = "0.3"
+anyhow = "1.0"
+serde_with = { version = "3.0", default-features = false, features = [
+    "macros",
+] }
+serde_yaml = "0.9"
+tinytemplate = "1.2.1"
+chrono = "0.4.41"
+
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = ['cfg(tarpaulin_include)'] }
+

@@ -1,0 +1,11 @@
+/target
+/dev
+/dist
+.env
+
+# Pkgbuild artifacts
+/pkg
+/src/target
+/src/waybar-weather*
+*.tar.gz
+*.zst
