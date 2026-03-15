@@ -50,6 +50,39 @@ alias vpn-off='sudo systemctl stop openvpn-client@firma'
 alias vpn-status='sudo systemctl status openvpn-client@firma --no-pager'
 alias vpn-restart='sudo systemctl restart openvpn-client@firma'
 alias vpn-logs='sudo journalctl -u openvpn-client@firma -n 20 --no-pager'
+
+# SAPGUI
+function sapgui
+    /home/yannick/SAPClients/SAPGUI/bin/guilogon & disown
+end
+
+# Alarm zu bestimmter Uhrzeit (Format HH:MM)
+function alarm
+    set timestamp (date +%s)
+    set unit_name "alarm-clock-$timestamp"
+    
+    if string match -rq '^[0-9]{1,2}:[0-9]{2}$' -- $argv[1]
+        systemd-run --user --unit=$unit_name --on-calendar="*-*-* $argv[1]:00" ~/.local/bin/alarm-ring.sh 2>/dev/null
+        echo "Alarm gesetzt für $argv[1] (ID: $timestamp)"
+    else if string match -rq '^[0-9]+min$' -- $argv[1]
+        set mins (string replace -r 'min' '' $argv[1])
+        systemd-run --user --unit=$unit_name --on-active="$mins"m ~/.local/bin/alarm-ring.sh 2> /dev/null
+        echo "Alarm in $mins Minuten (ID: $timestamp)"
+    else
+        echo "Usage:"
+        echo "  alarm 07:30"
+        echo "  alarm 10min"
+    end
+end
+
+function alarm-cancel
+    # Stoppt alle alarm-clock Units
+    systemctl --user stop 'alarm-clock-*.timer' 2>/dev/null
+    systemctl --user stop 'alarm-clock-*.service' 2>/dev/null
+    pkill -f alarm-ring.sh 2>/dev/null
+    echo "Alle Alarme gestoppt"
+end
+
 # -----------------------------------------------------
 #   ___  _           __  __             ____           _     
 #  / _ \| |__       |  \/  |_   _      |  _ \ ___  ___| |__  
