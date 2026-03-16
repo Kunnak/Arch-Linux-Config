@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Spotify TUI
+Exec=spotatui
+Comment=Spotify for the terminal written in Rust
+Type=Application
+Terminal=true
+StartupNotify=false
+Categories=Music;

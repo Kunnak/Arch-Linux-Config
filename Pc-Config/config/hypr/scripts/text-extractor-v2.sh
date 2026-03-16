@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# Script by https://github.com/anshifmonz
 set -Eeuo pipefail
 PICKER_PID=""
 SLURP_TIMEOUT=10
