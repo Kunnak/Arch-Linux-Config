@@ -50,6 +50,7 @@ vim.keymap.set("n", "k", function()
     return vim.v.count > 0 and "k" or "gk"
 end, { expr = true, desc = "Up-Movement für Wrapping" })
 
+vim.keymap.set({"x", "o"}, "ii", "ip", { remap = true, desc = "Inner paragraph (alias for ip)" })
 
 -- ==================================================================================
 -- UTILITIES

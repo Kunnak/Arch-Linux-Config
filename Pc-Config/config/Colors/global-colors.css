@@ -1,0 +1,1801 @@
+/* ────────────────────────────────────────────────────────────────────────────────
+      ____ _       _           _    ____ ____ ____  
+     / ___| | ___ | |__   __ _| |  / ___/ ___/ ___| 
+    | |  _| |/ _ \| '_ \ / _` | | | |   \___ \___ \ 
+    | |_| | | (_) | |_) | (_| | | | |___ ___) |__) |
+     \____|_|\___/|_.__/ \__,_|_|  \____|____/____/ 
+      ____      _              ____       _      _   _       
+     / ___|___ | | ___  _ __  |  _ \ __ _| | ___| |_| |_ ___ 
+    | |   / _ \| |/ _ \| '__| | |_) / _` | |/ _ \ __| __/ _ \
+    | |__| (_) | | (_) | |    |  __/ (_| | |  __/ |_| ||  __/
+     \____\___/|_|\___/|_|    |_|   \__,_|_|\___|\__|\__\___|
+
+    ─── by Yannick ───
+   ──────────────────────────────────────────────────────────────────────────────── */
+
+/* ────────────────────────────────────────────────────────────────────────────────
+     ____  _            _                      _  __        ___     _ _            
+    | __ )| | __ _  ___| | __   __ _ _ __   __| | \ \      / / |__ (_) |_ ___  ___ 
+    |  _ \| |/ _` |/ __| |/ /  / _` | '_ \ / _` |  \ \ /\ / /| '_ \| | __/ _ \/ __|
+    | |_) | | (_| | (__|   <  | (_| | | | | (_| |   \ V  V / | | | | | ||  __/\__ \
+    |____/|_|\__,_|\___|_|\_\  \__,_|_| |_|\__,_|    \_/\_/  |_| |_|_|\__\___||___/
+
+   ──────────────────────────────────────────────────────────────────────────────── */
+@define-color black                             rgba(0, 0, 0, 1);
+@define-color black_blur_10                     rgba(0, 0, 0, 0.1);
+@define-color black_blur_20                     rgba(0, 0, 0, 0.2);
+@define-color black_blur_30                     rgba(0, 0, 0, 0.3);
+@define-color black_blur_50                     rgba(0, 0, 0, 0.5);
+@define-color black_blur_70                     rgba(0, 0, 0, 0.7);
+@define-color black_blur_80                     rgba(0, 0, 0, 0.8);
+@define-color black_blur_90                     rgba(0, 0, 0, 0.9);
+
+@define-color grey_darkest                      rgba(13, 13, 13, 1);
+@define-color grey_darkest_blur_15              rgba(13, 13, 13, 0.15);
+@define-color grey_darkest_blur_30              rgba(13, 13, 13, 0.30);
+@define-color grey_darkest_blur_45              rgba(13, 13, 13, 0.45);
+@define-color grey_darkest_blur_60              rgba(13, 13, 13, 0.60);
+@define-color grey_darkest_blur_75              rgba(13, 13, 13, 0.75);
+@define-color grey_darkest_blur_90              rgba(13, 13, 13, 0.90);
+
+@define-color grey_darker                       rgba(26, 26, 26, 1);
+@define-color grey_darker_blur_15               rgba(26, 26, 26, 0.15);
+@define-color grey_darker_blur_30               rgba(26, 26, 26, 0.30);
+@define-color grey_darker_blur_45               rgba(26, 26, 26, 0.45);
+@define-color grey_darker_blur_60               rgba(26, 26, 26, 0.60);
+@define-color grey_darker_blur_75               rgba(26, 26, 26, 0.75);
+@define-color grey_darker_blur_90               rgba(26, 26, 26, 0.90);
+
+@define-color grey_dark                         rgba(43, 43, 43, 1);
+@define-color grey_dark_blur_15                 rgba(43, 43, 43, 0.15);
+@define-color grey_dark_blur_30                 rgba(43, 43, 43, 0.30);
+@define-color grey_dark_blur_45                 rgba(43, 43, 43, 0.45);
+@define-color grey_dark_blur_60                 rgba(43, 43, 43, 0.60);
+@define-color grey_dark_blur_75                 rgba(43, 43, 43, 0.75);
+@define-color grey_dark_blur_90                 rgba(43, 43, 43, 0.90);
+
+@define-color grey_mid_dark                     rgba(61, 61, 61, 1);
+@define-color grey_mid_dark_blur_15             rgba(61, 61, 61, 0.15);
+@define-color grey_mid_dark_blur_30             rgba(61, 61, 61, 0.30);
+@define-color grey_mid_dark_blur_45             rgba(61, 61, 61, 0.45);
+@define-color grey_mid_dark_blur_60             rgba(61, 61, 61, 0.60);
+@define-color grey_mid_dark_blur_75             rgba(61, 61, 61, 0.75);
+@define-color grey_mid_dark_blur_90             rgba(61, 61, 61, 0.90);
+
+@define-color grey_mid                          rgba(85, 85, 85, 1);
+@define-color grey_mid_blur_15                  rgba(85, 85, 85, 0.15);
+@define-color grey_mid_blur_30                  rgba(85, 85, 85, 0.30);
+@define-color grey_mid_blur_45                  rgba(85, 85, 85, 0.45);
+@define-color grey_mid_blur_60                  rgba(85, 85, 85, 0.60);
+@define-color grey_mid_blur_75                  rgba(85, 85, 85, 0.75);
+@define-color grey_mid_blur_90                  rgba(85, 85, 85, 0.90);
+
+@define-color grey                              rgba(112, 112, 112, 1);
+@define-color grey_blur_15                      rgba(112, 112, 112, 0.15);
+@define-color grey_blur_30                      rgba(112, 112, 112, 0.30);
+@define-color grey_blur_45                      rgba(112, 112, 112, 0.45);
+@define-color grey_blur_60                      rgba(112, 112, 112, 0.60);
+@define-color grey_blur_75                      rgba(112, 112, 112, 0.75);
+@define-color grey_blur_90                      rgba(112, 112, 112, 0.90);
+
+@define-color grey_mid_light                    rgba(138, 138, 138, 1);
+@define-color grey_mid_light_blur_15            rgba(138, 138, 138, 0.15);
+@define-color grey_mid_light_blur_30            rgba(138, 138, 138, 0.30);
+@define-color grey_mid_light_blur_45            rgba(138, 138, 138, 0.45);
+@define-color grey_mid_light_blur_60            rgba(138, 138, 138, 0.60);
+@define-color grey_mid_light_blur_75            rgba(138, 138, 138, 0.75);
+@define-color grey_mid_light_blur_90            rgba(138, 138, 138, 0.90);
+
+@define-color grey_light                        rgba(170, 170, 170, 1);
+@define-color grey_light_blur_15                rgba(170, 170, 170, 0.15);
+@define-color grey_light_blur_30                rgba(170, 170, 170, 0.30);
+@define-color grey_light_blur_45                rgba(170, 170, 170, 0.45);
+@define-color grey_light_blur_60                rgba(170, 170, 170, 0.60);
+@define-color grey_light_blur_75                rgba(170, 170, 170, 0.75);
+@define-color grey_light_blur_90                rgba(170, 170, 170, 0.90);
+
+@define-color grey_lighter                      rgba(197, 197, 197, 1);
+@define-color grey_lighter_blur_15              rgba(197, 197, 197, 0.15);
+@define-color grey_lighter_blur_30              rgba(197, 197, 197, 0.30);
+@define-color grey_lighter_blur_45              rgba(197, 197, 197, 0.45);
+@define-color grey_lighter_blur_60              rgba(197, 197, 197, 0.60);
+@define-color grey_lighter_blur_75              rgba(197, 197, 197, 0.75);
+@define-color grey_lighter_blur_90              rgba(197, 197, 197, 0.90);
+
+@define-color grey_lightest                     rgba(224, 224, 224, 1);
+@define-color grey_lightest_blur_15             rgba(224, 224, 224, 0.15);
+@define-color grey_lightest_blur_30             rgba(224, 224, 224, 0.30);
+@define-color grey_lightest_blur_45             rgba(224, 224, 224, 0.45);
+@define-color grey_lightest_blur_60             rgba(224, 224, 224, 0.60);
+@define-color grey_lightest_blur_75             rgba(224, 224, 224, 0.75);
+@define-color grey_lightest_blur_90             rgba(224, 224, 224, 0.90);
+
+@define-color off_white                         rgba(240, 240, 240, 1);
+@define-color off_white_blur_15                 rgba(240, 240, 240, 0.15);
+@define-color off_white_blur_30                 rgba(240, 240, 240, 0.30);
+@define-color off_white_blur_45                 rgba(240, 240, 240, 0.45);
+@define-color off_white_blur_60                 rgba(240, 240, 240, 0.60);
+@define-color off_white_blur_75                 rgba(240, 240, 240, 0.75);
+@define-color off_white_blur_90                 rgba(240, 240, 240, 0.90);
+
+@define-color white_warm                        rgba(250, 248, 245, 1);
+@define-color white_warm_blur_15                rgba(250, 248, 245, 0.15);
+@define-color white_warm_blur_30                rgba(250, 248, 245, 0.30);
+@define-color white_warm_blur_45                rgba(250, 248, 245, 0.45);
+@define-color white_warm_blur_60                rgba(250, 248, 245, 0.60);
+@define-color white_warm_blur_75                rgba(250, 248, 245, 0.75);
+@define-color white_warm_blur_90                rgba(250, 248, 245, 0.90);
+
+@define-color white                             rgba(255, 255, 255, 1);
+@define-color white_blur_10                     rgba(255, 255, 255, 0.1);
+@define-color white_blur_20                     rgba(255, 255, 255, 0.2);
+@define-color white_blur_30                     rgba(255, 255, 255, 0.3);
+@define-color white_blur_50                     rgba(255, 255, 255, 0.5);
+@define-color white_blur_70                     rgba(255, 255, 255, 0.7);
+@define-color white_blur_80                     rgba(255, 255, 255, 0.8);
+@define-color white_blur_90                     rgba(255, 255, 255, 0.9);
+
+
+/* ────────────────────────────────────────────────────────────────────────────────
+     ____          _ 
+    |  _ \ ___  __| |
+    | |_) / _ \/ _` |
+    |  _ <  __/ (_| |
+    |_| \_\___|\__,_|
+
+   ──────────────────────────────────────────────────────────────────────────────── */
+@define-color red_darkest                       rgba(26, 0, 0, 1);
+@define-color red_darkest_blur_15               rgba(26, 0, 0, 0.15);
+@define-color red_darkest_blur_30               rgba(26, 0, 0, 0.30);
+@define-color red_darkest_blur_45               rgba(26, 0, 0, 0.45);
+@define-color red_darkest_blur_60               rgba(26, 0, 0, 0.60);
+@define-color red_darkest_blur_75               rgba(26, 0, 0, 0.75);
+@define-color red_darkest_blur_90               rgba(26, 0, 0, 0.90);
+
+@define-color red_darker                        rgba(59, 0, 0, 1);
+@define-color red_darker_blur_15                rgba(59, 0, 0, 0.15);
+@define-color red_darker_blur_30                rgba(59, 0, 0, 0.30);
+@define-color red_darker_blur_45                rgba(59, 0, 0, 0.45);
+@define-color red_darker_blur_60                rgba(59, 0, 0, 0.60);
+@define-color red_darker_blur_75                rgba(59, 0, 0, 0.75);
+@define-color red_darker_blur_90                rgba(59, 0, 0, 0.90);
+
+@define-color red_dark                          rgba(107, 0, 0, 1);
+@define-color red_dark_blur_15                  rgba(107, 0, 0, 0.15);
+@define-color red_dark_blur_30                  rgba(107, 0, 0, 0.30);
+@define-color red_dark_blur_45                  rgba(107, 0, 0, 0.45);
+@define-color red_dark_blur_60                  rgba(107, 0, 0, 0.60);
+@define-color red_dark_blur_75                  rgba(107, 0, 0, 0.75);
+@define-color red_dark_blur_90                  rgba(107, 0, 0, 0.90);
+
+@define-color red_deep                          rgba(147, 0, 0, 1);
+@define-color red_deep_blur_15                  rgba(147, 0, 0, 0.15);
+@define-color red_deep_blur_30                  rgba(147, 0, 0, 0.30);
+@define-color red_deep_blur_45                  rgba(147, 0, 0, 0.45);
+@define-color red_deep_blur_60                  rgba(147, 0, 0, 0.60);
+@define-color red_deep_blur_75                  rgba(147, 0, 0, 0.75);
+@define-color red_deep_blur_90                  rgba(147, 0, 0, 0.90);
+
+@define-color red                               rgba(204, 0, 0, 1);
+@define-color red_blur_15                       rgba(204, 0, 0, 0.15);
+@define-color red_blur_30                       rgba(204, 0, 0, 0.30);
+@define-color red_blur_45                       rgba(204, 0, 0, 0.45);
+@define-color red_blur_60                       rgba(204, 0, 0, 0.60);
+@define-color red_blur_75                       rgba(204, 0, 0, 0.75);
+@define-color red_blur_90                       rgba(204, 0, 0, 0.90);
+
+@define-color red_pure                          rgba(255, 0, 0, 1);
+@define-color red_pure_blur_15                  rgba(255, 0, 0, 0.15);
+@define-color red_pure_blur_30                  rgba(255, 0, 0, 0.30);
+@define-color red_pure_blur_45                  rgba(255, 0, 0, 0.45);
+@define-color red_pure_blur_60                  rgba(255, 0, 0, 0.60);
+@define-color red_pure_blur_75                  rgba(255, 0, 0, 0.75);
+@define-color red_pure_blur_90                  rgba(255, 0, 0, 0.90);
+
+@define-color red_mid                           rgba(255, 51, 51, 1);
+@define-color red_mid_blur_15                   rgba(255, 51, 51, 0.15);
+@define-color red_mid_blur_30                   rgba(255, 51, 51, 0.30);
+@define-color red_mid_blur_45                   rgba(255, 51, 51, 0.45);
+@define-color red_mid_blur_60                   rgba(255, 51, 51, 0.60);
+@define-color red_mid_blur_75                   rgba(255, 51, 51, 0.75);
+@define-color red_mid_blur_90                   rgba(255, 51, 51, 0.90);
+
+@define-color red_light                         rgba(255, 102, 102, 1);
+@define-color red_light_blur_15                 rgba(255, 102, 102, 0.15);
+@define-color red_light_blur_30                 rgba(255, 102, 102, 0.30);
+@define-color red_light_blur_45                 rgba(255, 102, 102, 0.45);
+@define-color red_light_blur_60                 rgba(255, 102, 102, 0.60);
+@define-color red_light_blur_75                 rgba(255, 102, 102, 0.75);
+@define-color red_light_blur_90                 rgba(255, 102, 102, 0.90);
+
+@define-color red_lighter                       rgba(255, 153, 153, 1);
+@define-color red_lighter_blur_15               rgba(255, 153, 153, 0.15);
+@define-color red_lighter_blur_30               rgba(255, 153, 153, 0.30);
+@define-color red_lighter_blur_45               rgba(255, 153, 153, 0.45);
+@define-color red_lighter_blur_60               rgba(255, 153, 153, 0.60);
+@define-color red_lighter_blur_75               rgba(255, 153, 153, 0.75);
+@define-color red_lighter_blur_90               rgba(255, 153, 153, 0.90);
+
+@define-color red_lightest                      rgba(255, 204, 204, 1);
+@define-color red_lightest_blur_15              rgba(255, 204, 204, 0.15);
+@define-color red_lightest_blur_30              rgba(255, 204, 204, 0.30);
+@define-color red_lightest_blur_45              rgba(255, 204, 204, 0.45);
+@define-color red_lightest_blur_60              rgba(255, 204, 204, 0.60);
+@define-color red_lightest_blur_75              rgba(255, 204, 204, 0.75);
+@define-color red_lightest_blur_90              rgba(255, 204, 204, 0.90);
+
+@define-color red_pale                          rgba(255, 229, 229, 1);
+@define-color red_pale_blur_15                  rgba(255, 229, 229, 0.15);
+@define-color red_pale_blur_30                  rgba(255, 229, 229, 0.30);
+@define-color red_pale_blur_45                  rgba(255, 229, 229, 0.45);
+@define-color red_pale_blur_60                  rgba(255, 229, 229, 0.60);
+@define-color red_pale_blur_75                  rgba(255, 229, 229, 0.75);
+@define-color red_pale_blur_90                  rgba(255, 229, 229, 0.90);
+
+
+/* ────────────────────────────────────────────────────────────────────────────────
+      ___                             
+     / _ \ _ __ __ _ _ __   __ _  ___ 
+    | | | | '__/ _` | '_ \ / _` |/ _ \
+    | |_| | | | (_| | | | | (_| |  __/
+     \___/|_|  \__,_|_| |_|\__, |\___|
+                           |___/      
+   ──────────────────────────────────────────────────────────────────────────────── */
+@define-color orange                            rgba(232, 93, 0, 1);
+@define-color orange_blur_15                    rgba(255, 106, 0, 0.15);
+@define-color orange_blur_30                    rgba(255, 106, 0, 0.3);
+@define-color orange_blur_60                    rgba(255, 106, 0, 0.6);
+@define-color orange_blur_90                    rgba(255, 106, 0, 0.9);
+
+@define-color orange_darkest                    rgba(26, 8, 0, 1);
+@define-color orange_darkest_blur_15            rgba(26, 8, 0, 0.15);
+@define-color orange_darkest_blur_30            rgba(26, 8, 0, 0.30);
+@define-color orange_darkest_blur_45            rgba(26, 8, 0, 0.45);
+@define-color orange_darkest_blur_60            rgba(26, 8, 0, 0.60);
+@define-color orange_darkest_blur_75            rgba(26, 8, 0, 0.75);
+@define-color orange_darkest_blur_90            rgba(26, 8, 0, 0.90);
+
+@define-color orange_darker                     rgba(61, 21, 0, 1);
+@define-color orange_darker_blur_15             rgba(61, 21, 0, 0.15);
+@define-color orange_darker_blur_30             rgba(61, 21, 0, 0.30);
+@define-color orange_darker_blur_45             rgba(61, 21, 0, 0.45);
+@define-color orange_darker_blur_60             rgba(61, 21, 0, 0.60);
+@define-color orange_darker_blur_75             rgba(61, 21, 0, 0.75);
+@define-color orange_darker_blur_90             rgba(61, 21, 0, 0.90);
+
+@define-color orange_dark                       rgba(122, 46, 0, 1);
+@define-color orange_dark_blur_15               rgba(122, 46, 0, 0.15);
+@define-color orange_dark_blur_30               rgba(122, 46, 0, 0.30);
+@define-color orange_dark_blur_45               rgba(122, 46, 0, 0.45);
+@define-color orange_dark_blur_60               rgba(122, 46, 0, 0.60);
+@define-color orange_dark_blur_75               rgba(122, 46, 0, 0.75);
+@define-color orange_dark_blur_90               rgba(122, 46, 0, 0.90);
+
+@define-color orange_deep                       rgba(184, 68, 0, 1);
+@define-color orange_deep_blur_15               rgba(184, 68, 0, 0.15);
+@define-color orange_deep_blur_30               rgba(184, 68, 0, 0.30);
+@define-color orange_deep_blur_45               rgba(184, 68, 0, 0.45);
+@define-color orange_deep_blur_60               rgba(184, 68, 0, 0.60);
+@define-color orange_deep_blur_75               rgba(184, 68, 0, 0.75);
+@define-color orange_deep_blur_90               rgba(184, 68, 0, 0.90);
+
+
+@define-color orange_vivid                      rgba(255, 106, 0, 1);
+@define-color orange_vivid_blur_15              rgba(255, 106, 0, 0.15);
+@define-color orange_vivid_blur_30              rgba(255, 106, 0, 0.30);
+@define-color orange_vivid_blur_45              rgba(255, 106, 0, 0.45);
+@define-color orange_vivid_blur_60              rgba(255, 106, 0, 0.60);
+@define-color orange_vivid_blur_75              rgba(255, 106, 0, 0.75);
+@define-color orange_vivid_blur_90              rgba(255, 106, 0, 0.90);
+
+@define-color orange_mid                        rgba(255, 133, 51, 1);
+@define-color orange_mid_blur_15                rgba(255, 133, 51, 0.15);
+@define-color orange_mid_blur_30                rgba(255, 133, 51, 0.30);
+@define-color orange_mid_blur_45                rgba(255, 133, 51, 0.45);
+@define-color orange_mid_blur_60                rgba(255, 133, 51, 0.60);
+@define-color orange_mid_blur_75                rgba(255, 133, 51, 0.75);
+@define-color orange_mid_blur_90                rgba(255, 133, 51, 0.90);
+
+@define-color orange_light                      rgba(255, 163, 102, 1);
+@define-color orange_light_blur_15              rgba(255, 163, 102, 0.15);
+@define-color orange_light_blur_30              rgba(255, 163, 102, 0.30);
+@define-color orange_light_blur_45              rgba(255, 163, 102, 0.45);
+@define-color orange_light_blur_60              rgba(255, 163, 102, 0.60);
+@define-color orange_light_blur_75              rgba(255, 163, 102, 0.75);
+@define-color orange_light_blur_90              rgba(255, 163, 102, 0.90);
+
+@define-color orange_lighter                    rgba(255, 191, 153, 1);
+@define-color orange_lighter_blur_15            rgba(255, 191, 153, 0.15);
+@define-color orange_lighter_blur_30            rgba(255, 191, 153, 0.30);
+@define-color orange_lighter_blur_45            rgba(255, 191, 153, 0.45);
+@define-color orange_lighter_blur_60            rgba(255, 191, 153, 0.60);
+@define-color orange_lighter_blur_75            rgba(255, 191, 153, 0.75);
+@define-color orange_lighter_blur_90            rgba(255, 191, 153, 0.90);
+
+@define-color orange_lightest                   rgba(255, 217, 191, 1);
+@define-color orange_lightest_blur_15           rgba(255, 217, 191, 0.15);
+@define-color orange_lightest_blur_30           rgba(255, 217, 191, 0.30);
+@define-color orange_lightest_blur_45           rgba(255, 217, 191, 0.45);
+@define-color orange_lightest_blur_60           rgba(255, 217, 191, 0.60);
+@define-color orange_lightest_blur_75           rgba(255, 217, 191, 0.75);
+@define-color orange_lightest_blur_90           rgba(255, 217, 191, 0.90);
+
+@define-color orange_pale                       rgba(255, 237, 224, 1);
+@define-color orange_pale_blur_15               rgba(255, 237, 224, 0.15);
+@define-color orange_pale_blur_30               rgba(255, 237, 224, 0.30);
+@define-color orange_pale_blur_45               rgba(255, 237, 224, 0.45);
+@define-color orange_pale_blur_60               rgba(255, 237, 224, 0.60);
+@define-color orange_pale_blur_75               rgba(255, 237, 224, 0.75);
+@define-color orange_pale_blur_90               rgba(255, 237, 224, 0.90);
+
+/* ────────────────────────────────────────────────────────────────────────────────
+    __   __   _ _               
+    \ \ / /__| | | _____      __
+     \ V / _ \ | |/ _ \ \ /\ / /
+      | |  __/ | | (_) \ V  V / 
+      |_|\___|_|_|\___/ \_/\_/  
+
+   ──────────────────────────────────────────────────────────────────────────────── */
+@define-color yellow                            rgba(230, 184, 0, 1);
+@define-color yellow_blur_15                    rgba(255, 215, 0, 0.15);
+@define-color yellow_blur_30                    rgba(255, 215, 0, 0.3);
+@define-color yellow_blur_60                    rgba(255, 215, 0, 0.6);
+@define-color yellow_blur_90                    rgba(255, 215, 0, 0.9);
+
+@define-color yellow_darkest                    rgba(26, 20, 0, 1);
+@define-color yellow_darkest_blur_15            rgba(26, 20, 0, 0.15);
+@define-color yellow_darkest_blur_30            rgba(26, 20, 0, 0.30);
+@define-color yellow_darkest_blur_45            rgba(26, 20, 0, 0.45);
+@define-color yellow_darkest_blur_60            rgba(26, 20, 0, 0.60);
+@define-color yellow_darkest_blur_75            rgba(26, 20, 0, 0.75);
+@define-color yellow_darkest_blur_90            rgba(26, 20, 0, 0.90);
+
+@define-color yellow_darker                     rgba(61, 46, 0, 1);
+@define-color yellow_darker_blur_15             rgba(61, 46, 0, 0.15);
+@define-color yellow_darker_blur_30             rgba(61, 46, 0, 0.30);
+@define-color yellow_darker_blur_45             rgba(61, 46, 0, 0.45);
+@define-color yellow_darker_blur_60             rgba(61, 46, 0, 0.60);
+@define-color yellow_darker_blur_75             rgba(61, 46, 0, 0.75);
+@define-color yellow_darker_blur_90             rgba(61, 46, 0, 0.90);
+
+@define-color yellow_dark                       rgba(122, 92, 0, 1);
+@define-color yellow_dark_blur_15               rgba(122, 92, 0, 0.15);
+@define-color yellow_dark_blur_30               rgba(122, 92, 0, 0.30);
+@define-color yellow_dark_blur_45               rgba(122, 92, 0, 0.45);
+@define-color yellow_dark_blur_60               rgba(122, 92, 0, 0.60);
+@define-color yellow_dark_blur_75               rgba(122, 92, 0, 0.75);
+@define-color yellow_dark_blur_90               rgba(122, 92, 0, 0.90);
+
+@define-color yellow_deep                       rgba(179, 134, 0, 1);
+@define-color yellow_deep_blur_15               rgba(179, 134, 0, 0.15);
+@define-color yellow_deep_blur_30               rgba(179, 134, 0, 0.30);
+@define-color yellow_deep_blur_45               rgba(179, 134, 0, 0.45);
+@define-color yellow_deep_blur_60               rgba(179, 134, 0, 0.60);
+@define-color yellow_deep_blur_75               rgba(179, 134, 0, 0.75);
+@define-color yellow_deep_blur_90               rgba(179, 134, 0, 0.90);
+
+@define-color yellow_blur_15                    rgba(230, 184, 0, 0.15);
+@define-color yellow_blur_30                    rgba(230, 184, 0, 0.30);
+@define-color yellow_blur_45                    rgba(230, 184, 0, 0.45);
+@define-color yellow_blur_60                    rgba(230, 184, 0, 0.60);
+@define-color yellow_blur_75                    rgba(230, 184, 0, 0.75);
+@define-color yellow_blur_90                    rgba(230, 184, 0, 0.90);
+
+@define-color yellow_vivid                      rgba(255, 215, 0, 1);
+@define-color yellow_vivid_blur_15              rgba(255, 215, 0, 0.15);
+@define-color yellow_vivid_blur_30              rgba(255, 215, 0, 0.30);
+@define-color yellow_vivid_blur_45              rgba(255, 215, 0, 0.45);
+@define-color yellow_vivid_blur_60              rgba(255, 215, 0, 0.60);
+@define-color yellow_vivid_blur_75              rgba(255, 215, 0, 0.75);
+@define-color yellow_vivid_blur_90              rgba(255, 215, 0, 0.90);
+
+@define-color yellow_pure                       rgba(255, 255, 0, 1);
+@define-color yellow_pure_blur_15               rgba(255, 255, 0, 0.15);
+@define-color yellow_pure_blur_30               rgba(255, 255, 0, 0.30);
+@define-color yellow_pure_blur_45               rgba(255, 255, 0, 0.45);
+@define-color yellow_pure_blur_60               rgba(255, 255, 0, 0.60);
+@define-color yellow_pure_blur_75               rgba(255, 255, 0, 0.75);
+@define-color yellow_pure_blur_90               rgba(255, 255, 0, 0.90);
+
+@define-color yellow_mid                        rgba(255, 255, 51, 1);
+@define-color yellow_mid_blur_15                rgba(255, 255, 51, 0.15);
+@define-color yellow_mid_blur_30                rgba(255, 255, 51, 0.30);
+@define-color yellow_mid_blur_45                rgba(255, 255, 51, 0.45);
+@define-color yellow_mid_blur_60                rgba(255, 255, 51, 0.60);
+@define-color yellow_mid_blur_75                rgba(255, 255, 51, 0.75);
+@define-color yellow_mid_blur_90                rgba(255, 255, 51, 0.90);
+
+@define-color yellow_light                      rgba(255, 255, 102, 1);
+@define-color yellow_light_blur_15              rgba(255, 255, 102, 0.15);
+@define-color yellow_light_blur_30              rgba(255, 255, 102, 0.30);
+@define-color yellow_light_blur_45              rgba(255, 255, 102, 0.45);
+@define-color yellow_light_blur_60              rgba(255, 255, 102, 0.60);
+@define-color yellow_light_blur_75              rgba(255, 255, 102, 0.75);
+@define-color yellow_light_blur_90              rgba(255, 255, 102, 0.90);
+
+@define-color yellow_lighter                    rgba(255, 255, 153, 1);
+@define-color yellow_lighter_blur_15            rgba(255, 255, 153, 0.15);
+@define-color yellow_lighter_blur_30            rgba(255, 255, 153, 0.30);
+@define-color yellow_lighter_blur_45            rgba(255, 255, 153, 0.45);
+@define-color yellow_lighter_blur_60            rgba(255, 255, 153, 0.60);
+@define-color yellow_lighter_blur_75            rgba(255, 255, 153, 0.75);
+@define-color yellow_lighter_blur_90            rgba(255, 255, 153, 0.90);
+
+@define-color yellow_lightest                   rgba(255, 255, 204, 1);
+@define-color yellow_lightest_blur_15           rgba(255, 255, 204, 0.15);
+@define-color yellow_lightest_blur_30           rgba(255, 255, 204, 0.30);
+@define-color yellow_lightest_blur_45           rgba(255, 255, 204, 0.45);
+@define-color yellow_lightest_blur_60           rgba(255, 255, 204, 0.60);
+@define-color yellow_lightest_blur_75           rgba(255, 255, 204, 0.75);
+@define-color yellow_lightest_blur_90           rgba(255, 255, 204, 0.90);
+
+@define-color yellow_pale                       rgba(255, 255, 240, 1);
+@define-color yellow_pale_blur_15               rgba(255, 255, 240, 0.15);
+@define-color yellow_pale_blur_30               rgba(255, 255, 240, 0.30);
+@define-color yellow_pale_blur_45               rgba(255, 255, 240, 0.45);
+@define-color yellow_pale_blur_60               rgba(255, 255, 240, 0.60);
+@define-color yellow_pale_blur_75               rgba(255, 255, 240, 0.75);
+@define-color yellow_pale_blur_90               rgba(255, 255, 240, 0.90);
+
+@define-color yellow_warm                       rgba(255, 224, 102, 1);
+@define-color yellow_warm_blur_15               rgba(255, 224, 102, 0.15);
+@define-color yellow_warm_blur_30               rgba(255, 224, 102, 0.30);
+@define-color yellow_warm_blur_45               rgba(255, 224, 102, 0.45);
+@define-color yellow_warm_blur_60               rgba(255, 224, 102, 0.60);
+@define-color yellow_warm_blur_75               rgba(255, 224, 102, 0.75);
+@define-color yellow_warm_blur_90               rgba(255, 224, 102, 0.90);
+
+@define-color yellow_golden                     rgba(255, 194, 0, 1);
+@define-color yellow_golden_blur_15             rgba(255, 194, 0, 0.15);
+@define-color yellow_golden_blur_30             rgba(255, 194, 0, 0.30);
+@define-color yellow_golden_blur_45             rgba(255, 194, 0, 0.45);
+@define-color yellow_golden_blur_60             rgba(255, 194, 0, 0.60);
+@define-color yellow_golden_blur_75             rgba(255, 194, 0, 0.75);
+@define-color yellow_golden_blur_90             rgba(255, 194, 0, 0.90);
+
+
+/* ────────────────────────────────────────────────────────────────────────────────
+     _     _                     __ __   __   _ _               
+    | |   (_)_ __ ___   ___     / / \ \ / /__| | | _____      __
+    | |   | | '_ ` _ \ / _ \   / /   \ V / _ \ | |/ _ \ \ /\ / /
+    | |___| | | | | | |  __/  / /     | |  __/ | | (_) \ V  V / 
+    |_____|_|_| |_| |_|\___| /_/      |_|\___|_|_|\___/ \_/\_/  
+
+   ──────────────────────────────────────────────────────────────────────────────── */
+@define-color lime                              rgba(122, 204, 0, 1);
+@define-color lime_blur_15                      rgba(122, 204, 0, 0.15);
+@define-color lime_blur_30                      rgba(122, 204, 0, 0.30);
+@define-color lime_blur_45                      rgba(122, 204, 0, 0.45);
+@define-color lime_blur_60                      rgba(122, 204, 0, 0.60);
+@define-color lime_blur_75                      rgba(122, 204, 0, 0.75);
+@define-color lime_blur_90                      rgba(122, 204, 0, 0.90);
+
+@define-color lime_darkest                      rgba(13, 26, 0, 1);
+@define-color lime_darkest_blur_15              rgba(13, 26, 0, 0.15);
+@define-color lime_darkest_blur_30              rgba(13, 26, 0, 0.30);
+@define-color lime_darkest_blur_45              rgba(13, 26, 0, 0.45);
+@define-color lime_darkest_blur_60              rgba(13, 26, 0, 0.60);
+@define-color lime_darkest_blur_75              rgba(13, 26, 0, 0.75);
+@define-color lime_darkest_blur_90              rgba(13, 26, 0, 0.90);
+
+@define-color lime_darker                       rgba(31, 61, 0, 1);
+@define-color lime_darker_blur_15               rgba(31, 61, 0, 0.15);
+@define-color lime_darker_blur_30               rgba(31, 61, 0, 0.30);
+@define-color lime_darker_blur_45               rgba(31, 61, 0, 0.45);
+@define-color lime_darker_blur_60               rgba(31, 61, 0, 0.60);
+@define-color lime_darker_blur_75               rgba(31, 61, 0, 0.75);
+@define-color lime_darker_blur_90               rgba(31, 61, 0, 0.90);
+
+@define-color lime_dark                         rgba(61, 122, 0, 1);
+@define-color lime_dark_blur_15                 rgba(61, 122, 0, 0.15);
+@define-color lime_dark_blur_30                 rgba(61, 122, 0, 0.30);
+@define-color lime_dark_blur_45                 rgba(61, 122, 0, 0.45);
+@define-color lime_dark_blur_60                 rgba(61, 122, 0, 0.60);
+@define-color lime_dark_blur_75                 rgba(61, 122, 0, 0.75);
+@define-color lime_dark_blur_90                 rgba(61, 122, 0, 0.90);
+
+@define-color lime_deep                         rgba(92, 179, 0, 1);
+@define-color lime_deep_blur_15                 rgba(92, 179, 0, 0.15);
+@define-color lime_deep_blur_30                 rgba(92, 179, 0, 0.30);
+@define-color lime_deep_blur_45                 rgba(92, 179, 0, 0.45);
+@define-color lime_deep_blur_60                 rgba(92, 179, 0, 0.60);
+@define-color lime_deep_blur_75                 rgba(92, 179, 0, 0.75);
+@define-color lime_deep_blur_90                 rgba(92, 179, 0, 0.90);
+
+@define-color lime_vivid                        rgba(153, 255, 0, 1);
+@define-color lime_vivid_blur_15                rgba(153, 255, 0, 0.15);
+@define-color lime_vivid_blur_30                rgba(153, 255, 0, 0.30);
+@define-color lime_vivid_blur_45                rgba(153, 255, 0, 0.45);
+@define-color lime_vivid_blur_60                rgba(153, 255, 0, 0.60);
+@define-color lime_vivid_blur_75                rgba(153, 255, 0, 0.75);
+@define-color lime_vivid_blur_90                rgba(153, 255, 0, 0.90);
+
+@define-color lime_mid                          rgba(170, 255, 51, 1);
+@define-color lime_mid_blur_15                  rgba(170, 255, 51, 0.15);
+@define-color lime_mid_blur_30                  rgba(170, 255, 51, 0.30);
+@define-color lime_mid_blur_45                  rgba(170, 255, 51, 0.45);
+@define-color lime_mid_blur_60                  rgba(170, 255, 51, 0.60);
+@define-color lime_mid_blur_75                  rgba(170, 255, 51, 0.75);
+@define-color lime_mid_blur_90                  rgba(170, 255, 51, 0.90);
+
+@define-color lime_light                        rgba(187, 255, 102, 1);
+@define-color lime_light_blur_15                rgba(187, 255, 102, 0.15);
+@define-color lime_light_blur_30                rgba(187, 255, 102, 0.30);
+@define-color lime_light_blur_45                rgba(187, 255, 102, 0.45);
+@define-color lime_light_blur_60                rgba(187, 255, 102, 0.60);
+@define-color lime_light_blur_75                rgba(187, 255, 102, 0.75);
+@define-color lime_light_blur_90                rgba(187, 255, 102, 0.90);
+
+@define-color lime_lighter                      rgba(204, 255, 153, 1);
+@define-color lime_lighter_blur_15              rgba(204, 255, 153, 0.15);
+@define-color lime_lighter_blur_30              rgba(204, 255, 153, 0.30);
+@define-color lime_lighter_blur_45              rgba(204, 255, 153, 0.45);
+@define-color lime_lighter_blur_60              rgba(204, 255, 153, 0.60);
+@define-color lime_lighter_blur_75              rgba(204, 255, 153, 0.75);
+@define-color lime_lighter_blur_90              rgba(204, 255, 153, 0.90);
+
+@define-color lime_lightest                     rgba(221, 255, 187, 1);
+@define-color lime_lightest_blur_15             rgba(221, 255, 187, 0.15);
+@define-color lime_lightest_blur_30             rgba(221, 255, 187, 0.30);
+@define-color lime_lightest_blur_45             rgba(221, 255, 187, 0.45);
+@define-color lime_lightest_blur_60             rgba(221, 255, 187, 0.60);
+@define-color lime_lightest_blur_75             rgba(221, 255, 187, 0.75);
+@define-color lime_lightest_blur_90             rgba(221, 255, 187, 0.90);
+
+@define-color lime_pale                         rgba(238, 255, 221, 1);
+@define-color lime_pale_blur_15                 rgba(238, 255, 221, 0.15);
+@define-color lime_pale_blur_30                 rgba(238, 255, 221, 0.30);
+@define-color lime_pale_blur_45                 rgba(238, 255, 221, 0.45);
+@define-color lime_pale_blur_60                 rgba(238, 255, 221, 0.60);
+@define-color lime_pale_blur_75                 rgba(238, 255, 221, 0.75);
+@define-color lime_pale_blur_90                 rgba(238, 255, 221, 0.90);
+
+
+/* ────────────────────────────────────────────────────────────────────────────────
+      ____                     
+     / ___|_ __ ___  ___ _ __  
+    | |  _| '__/ _ \/ _ \ '_ \ 
+    | |_| | | |  __/  __/ | | |
+     \____|_|  \___|\___|_| |_|
+
+   ──────────────────────────────────────────────────────────────────────────────── */
+@define-color green                             rgba(0, 170, 0, 1);
+@define-color green_blur_15                     rgba(0, 170, 0, 0.15);
+@define-color green_blur_30                     rgba(0, 170, 0, 0.30);
+@define-color green_blur_45                     rgba(0, 170, 0, 0.45);
+@define-color green_blur_60                     rgba(0, 170, 0, 0.60);
+@define-color green_blur_75                     rgba(0, 170, 0, 0.75);
+@define-color green_blur_90                     rgba(0, 170, 0, 0.90);
+
+@define-color green_darkest                     rgba(0, 26, 0, 1);
+@define-color green_darkest_blur_15             rgba(0, 26, 0, 0.15);
+@define-color green_darkest_blur_30             rgba(0, 26, 0, 0.30);
+@define-color green_darkest_blur_45             rgba(0, 26, 0, 0.45);
+@define-color green_darkest_blur_60             rgba(0, 26, 0, 0.60);
+@define-color green_darkest_blur_75             rgba(0, 26, 0, 0.75);
+@define-color green_darkest_blur_90             rgba(0, 26, 0, 0.90);
+
+@define-color green_darker                      rgba(0, 51, 0, 1);
+@define-color green_darker_blur_15              rgba(0, 51, 0, 0.15);
+@define-color green_darker_blur_30              rgba(0, 51, 0, 0.30);
+@define-color green_darker_blur_45              rgba(0, 51, 0, 0.45);
+@define-color green_darker_blur_60              rgba(0, 51, 0, 0.60);
+@define-color green_darker_blur_75              rgba(0, 51, 0, 0.75);
+@define-color green_darker_blur_90              rgba(0, 51, 0, 0.90);
+
+@define-color green_dark                        rgba(0, 102, 0, 1);
+@define-color green_dark_blur_15                rgba(0, 102, 0, 0.15);
+@define-color green_dark_blur_30                rgba(0, 102, 0, 0.30);
+@define-color green_dark_blur_45                rgba(0, 102, 0, 0.45);
+@define-color green_dark_blur_60                rgba(0, 102, 0, 0.60);
+@define-color green_dark_blur_75                rgba(0, 102, 0, 0.75);
+@define-color green_dark_blur_90                rgba(0, 102, 0, 0.90);
+
+@define-color green_deep                        rgba(0, 128, 0, 1);
+@define-color green_deep_blur_15                rgba(0, 128, 0, 0.15);
+@define-color green_deep_blur_30                rgba(0, 128, 0, 0.30);
+@define-color green_deep_blur_45                rgba(0, 128, 0, 0.45);
+@define-color green_deep_blur_60                rgba(0, 128, 0, 0.60);
+@define-color green_deep_blur_75                rgba(0, 128, 0, 0.75);
+@define-color green_deep_blur_90                rgba(0, 128, 0, 0.90);
+
+@define-color green_forest                      rgba(34, 139, 34, 1);
+@define-color green_forest_blur_15              rgba(34, 139, 34, 0.15);
+@define-color green_forest_blur_30              rgba(34, 139, 34, 0.30);
+@define-color green_forest_blur_45              rgba(34, 139, 34, 0.45);
+@define-color green_forest_blur_60              rgba(34, 139, 34, 0.60);
+@define-color green_forest_blur_75              rgba(34, 139, 34, 0.75);
+@define-color green_forest_blur_90              rgba(34, 139, 34, 0.90);
+
+@define-color green_vivid                       rgba(0, 204, 0, 1);
+@define-color green_vivid_blur_15               rgba(0, 204, 0, 0.15);
+@define-color green_vivid_blur_30               rgba(0, 204, 0, 0.30);
+@define-color green_vivid_blur_45               rgba(0, 204, 0, 0.45);
+@define-color green_vivid_blur_60               rgba(0, 204, 0, 0.60);
+@define-color green_vivid_blur_75               rgba(0, 204, 0, 0.75);
+@define-color green_vivid_blur_90               rgba(0, 204, 0, 0.90);
+
+@define-color green_pure                        rgba(0, 255, 0, 1);
+@define-color green_pure_blur_15                rgba(0, 255, 0, 0.15);
+@define-color green_pure_blur_30                rgba(0, 255, 0, 0.30);
+@define-color green_pure_blur_45                rgba(0, 255, 0, 0.45);
+@define-color green_pure_blur_60                rgba(0, 255, 0, 0.60);
+@define-color green_pure_blur_75                rgba(0, 255, 0, 0.75);
+@define-color green_pure_blur_90                rgba(0, 255, 0, 0.90);
+
+@define-color green_mid                         rgba(51, 255, 51, 1);
+@define-color green_mid_blur_15                 rgba(51, 255, 51, 0.15);
+@define-color green_mid_blur_30                 rgba(51, 255, 51, 0.30);
+@define-color green_mid_blur_45                 rgba(51, 255, 51, 0.45);
+@define-color green_mid_blur_60                 rgba(51, 255, 51, 0.60);
+@define-color green_mid_blur_75                 rgba(51, 255, 51, 0.75);
+@define-color green_mid_blur_90                 rgba(51, 255, 51, 0.90);
+
+@define-color green_light                       rgba(102, 255, 102, 1);
+@define-color green_light_blur_15               rgba(102, 255, 102, 0.15);
+@define-color green_light_blur_30               rgba(102, 255, 102, 0.30);
+@define-color green_light_blur_45               rgba(102, 255, 102, 0.45);
+@define-color green_light_blur_60               rgba(102, 255, 102, 0.60);
+@define-color green_light_blur_75               rgba(102, 255, 102, 0.75);
+@define-color green_light_blur_90               rgba(102, 255, 102, 0.90);
+
+@define-color green_lighter                     rgba(153, 255, 153, 1);
+@define-color green_lighter_blur_15             rgba(153, 255, 153, 0.15);
+@define-color green_lighter_blur_30             rgba(153, 255, 153, 0.30);
+@define-color green_lighter_blur_45             rgba(153, 255, 153, 0.45);
+@define-color green_lighter_blur_60             rgba(153, 255, 153, 0.60);
+@define-color green_lighter_blur_75             rgba(153, 255, 153, 0.75);
+@define-color green_lighter_blur_90             rgba(153, 255, 153, 0.90);
+
+@define-color green_lightest                    rgba(204, 255, 204, 1);
+@define-color green_lightest_blur_15            rgba(204, 255, 204, 0.15);
+@define-color green_lightest_blur_30            rgba(204, 255, 204, 0.30);
+@define-color green_lightest_blur_45            rgba(204, 255, 204, 0.45);
+@define-color green_lightest_blur_60            rgba(204, 255, 204, 0.60);
+@define-color green_lightest_blur_75            rgba(204, 255, 204, 0.75);
+@define-color green_lightest_blur_90            rgba(204, 255, 204, 0.90);
+
+@define-color green_pale                        rgba(229, 255, 229, 1);
+@define-color green_pale_blur_15                rgba(229, 255, 229, 0.15);
+@define-color green_pale_blur_30                rgba(229, 255, 229, 0.30);
+@define-color green_pale_blur_45                rgba(229, 255, 229, 0.45);
+@define-color green_pale_blur_60                rgba(229, 255, 229, 0.60);
+@define-color green_pale_blur_75                rgba(229, 255, 229, 0.75);
+@define-color green_pale_blur_90                rgba(229, 255, 229, 0.90);
+
+@define-color green_mint                        rgba(152, 255, 152, 1);
+@define-color green_mint_blur_15                rgba(152, 255, 152, 0.15);
+@define-color green_mint_blur_30                rgba(152, 255, 152, 0.30);
+@define-color green_mint_blur_45                rgba(152, 255, 152, 0.45);
+@define-color green_mint_blur_60                rgba(152, 255, 152, 0.60);
+@define-color green_mint_blur_75                rgba(152, 255, 152, 0.75);
+@define-color green_mint_blur_90                rgba(152, 255, 152, 0.90);
+
+/* ────────────────────────────────────────────────────────────────────────────────
+      ____                             ____                     
+     / ___|   _  __ _ _ __            / ___|_ __ ___  ___ _ __  
+    | |  | | | |/ _` | '_ \   _____  | |  _| '__/ _ \/ _ \ '_ \ 
+    | |__| |_| | (_| | | | | |_____| | |_| | | |  __/  __/ | | |
+     \____\__, |\__,_|_| |_|          \____|_|  \___|\___|_| |_|
+          |___/                                                 
+   ──────────────────────────────────────────────────────────────────────────────── */
+@define-color teal                              rgba(0, 150, 106, 1);
+@define-color teal_blur_15                      rgba(0, 150, 106, 0.15);
+@define-color teal_blur_30                      rgba(0, 150, 106, 0.3);
+@define-color teal_blur_60                      rgba(0, 150, 106, 0.6);
+@define-color teal_blur_90                      rgba(0, 150, 106, 0.9);
+
+@define-color teal_darkest                      rgba(0, 26, 18, 1);
+@define-color teal_darkest_blur_15              rgba(0, 26, 18, 0.15);
+@define-color teal_darkest_blur_30              rgba(0, 26, 18, 0.30);
+@define-color teal_darkest_blur_45              rgba(0, 26, 18, 0.45);
+@define-color teal_darkest_blur_60              rgba(0, 26, 18, 0.60);
+@define-color teal_darkest_blur_75              rgba(0, 26, 18, 0.75);
+@define-color teal_darkest_blur_90              rgba(0, 26, 18, 0.90);
+
+@define-color teal_darker                       rgba(0, 51, 31, 1);
+@define-color teal_darker_blur_15               rgba(0, 51, 31, 0.15);
+@define-color teal_darker_blur_30               rgba(0, 51, 31, 0.30);
+@define-color teal_darker_blur_45               rgba(0, 51, 31, 0.45);
+@define-color teal_darker_blur_60               rgba(0, 51, 31, 0.60);
+@define-color teal_darker_blur_75               rgba(0, 51, 31, 0.75);
+@define-color teal_darker_blur_90               rgba(0, 51, 31, 0.90);
+
+@define-color teal_dark                         rgba(0, 92, 56, 1);
+@define-color teal_dark_blur_15                 rgba(0, 92, 56, 0.15);
+@define-color teal_dark_blur_30                 rgba(0, 92, 56, 0.30);
+@define-color teal_dark_blur_45                 rgba(0, 92, 56, 0.45);
+@define-color teal_dark_blur_60                 rgba(0, 92, 56, 0.60);
+@define-color teal_dark_blur_75                 rgba(0, 92, 56, 0.75);
+@define-color teal_dark_blur_90                 rgba(0, 92, 56, 0.90);
+
+@define-color teal_deep                         rgba(0, 122, 80, 1);
+@define-color teal_deep_blur_15                 rgba(0, 122, 80, 0.15);
+@define-color teal_deep_blur_30                 rgba(0, 122, 80, 0.30);
+@define-color teal_deep_blur_45                 rgba(0, 122, 80, 0.45);
+@define-color teal_deep_blur_60                 rgba(0, 122, 80, 0.60);
+@define-color teal_deep_blur_75                 rgba(0, 122, 80, 0.75);
+@define-color teal_deep_blur_90                 rgba(0, 122, 80, 0.90);
+
+@define-color teal_vivid                        rgba(0, 199, 138, 1);
+@define-color teal_vivid_blur_15                rgba(0, 199, 138, 0.15);
+@define-color teal_vivid_blur_30                rgba(0, 199, 138, 0.30);
+@define-color teal_vivid_blur_45                rgba(0, 199, 138, 0.45);
+@define-color teal_vivid_blur_60                rgba(0, 199, 138, 0.60);
+@define-color teal_vivid_blur_75                rgba(0, 199, 138, 0.75);
+@define-color teal_vivid_blur_90                rgba(0, 199, 138, 0.90);
+
+@define-color teal_mid                          rgba(0, 229, 160, 1);
+@define-color teal_mid_blur_15                  rgba(0, 229, 160, 0.15);
+@define-color teal_mid_blur_30                  rgba(0, 229, 160, 0.30);
+@define-color teal_mid_blur_45                  rgba(0, 229, 160, 0.45);
+@define-color teal_mid_blur_60                  rgba(0, 229, 160, 0.60);
+@define-color teal_mid_blur_75                  rgba(0, 229, 160, 0.75);
+@define-color teal_mid_blur_90                  rgba(0, 229, 160, 0.90);
+
+@define-color teal_light                        rgba(51, 255, 184, 1);
+@define-color teal_light_blur_15                rgba(51, 255, 184, 0.15);
+@define-color teal_light_blur_30                rgba(51, 255, 184, 0.30);
+@define-color teal_light_blur_45                rgba(51, 255, 184, 0.45);
+@define-color teal_light_blur_60                rgba(51, 255, 184, 0.60);
+@define-color teal_light_blur_75                rgba(51, 255, 184, 0.75);
+@define-color teal_light_blur_90                rgba(51, 255, 184, 0.90);
+
+@define-color teal_lighter                      rgba(128, 255, 212, 1);
+@define-color teal_lighter_blur_15              rgba(128, 255, 212, 0.15);
+@define-color teal_lighter_blur_30              rgba(128, 255, 212, 0.30);
+@define-color teal_lighter_blur_45              rgba(128, 255, 212, 0.45);
+@define-color teal_lighter_blur_60              rgba(128, 255, 212, 0.60);
+@define-color teal_lighter_blur_75              rgba(128, 255, 212, 0.75);
+@define-color teal_lighter_blur_90              rgba(128, 255, 212, 0.90);
+
+@define-color teal_lightest                     rgba(179, 255, 229, 1);
+@define-color teal_lightest_blur_15             rgba(179, 255, 229, 0.15);
+@define-color teal_lightest_blur_30             rgba(179, 255, 229, 0.30);
+@define-color teal_lightest_blur_45             rgba(179, 255, 229, 0.45);
+@define-color teal_lightest_blur_60             rgba(179, 255, 229, 0.60);
+@define-color teal_lightest_blur_75             rgba(179, 255, 229, 0.75);
+@define-color teal_lightest_blur_90             rgba(179, 255, 229, 0.90);
+
+@define-color teal_pale                         rgba(224, 255, 245, 1);
+@define-color teal_pale_blur_15                 rgba(224, 255, 245, 0.15);
+@define-color teal_pale_blur_30                 rgba(224, 255, 245, 0.30);
+@define-color teal_pale_blur_45                 rgba(224, 255, 245, 0.45);
+@define-color teal_pale_blur_60                 rgba(224, 255, 245, 0.60);
+@define-color teal_pale_blur_75                 rgba(224, 255, 245, 0.75);
+@define-color teal_pale_blur_90                 rgba(224, 255, 245, 0.90);
+
+
+/* ────────────────────────────────────────────────────────────────────────────────
+      ____                            _____                            _          
+     / ___|   _  __ _ _ __           |_   _|   _ _ __ __ _ _   _  ___ (_)___  ___ 
+    | |  | | | |/ _` | '_ \   _____    | || | | | '__/ _` | | | |/ _ \| / __|/ _ \
+    | |__| |_| | (_| | | | | |_____|   | || |_| | | | (_| | |_| | (_) | \__ \  __/
+     \____\__, |\__,_|_| |_|           |_| \__,_|_|  \__, |\__,_|\___/|_|___/\___|
+          |___/                                         |_|                       
+   ──────────────────────────────────────────────────────────────────────────────── */
+@define-color cyan                              rgba(0, 170, 170, 1);
+@define-color cyan_blur_15                      rgba(0, 170, 170, 0.15);
+@define-color cyan_blur_30                      rgba(0, 170, 170, 0.30);
+@define-color cyan_blur_45                      rgba(0, 170, 170, 0.45);
+@define-color cyan_blur_60                      rgba(0, 170, 170, 0.60);
+@define-color cyan_blur_75                      rgba(0, 170, 170, 0.75);
+@define-color cyan_blur_90                      rgba(0, 170, 170, 0.90);
+
+@define-color cyan_darkest                      rgba(0, 26, 26, 1);
+@define-color cyan_darkest_blur_15              rgba(0, 26, 26, 0.15);
+@define-color cyan_darkest_blur_30              rgba(0, 26, 26, 0.30);
+@define-color cyan_darkest_blur_45              rgba(0, 26, 26, 0.45);
+@define-color cyan_darkest_blur_60              rgba(0, 26, 26, 0.60);
+@define-color cyan_darkest_blur_75              rgba(0, 26, 26, 0.75);
+@define-color cyan_darkest_blur_90              rgba(0, 26, 26, 0.90);
+
+@define-color cyan_darker                       rgba(0, 51, 51, 1);
+@define-color cyan_darker_blur_15               rgba(0, 51, 51, 0.15);
+@define-color cyan_darker_blur_30               rgba(0, 51, 51, 0.30);
+@define-color cyan_darker_blur_45               rgba(0, 51, 51, 0.45);
+@define-color cyan_darker_blur_60               rgba(0, 51, 51, 0.60);
+@define-color cyan_darker_blur_75               rgba(0, 51, 51, 0.75);
+@define-color cyan_darker_blur_90               rgba(0, 51, 51, 0.90);
+
+@define-color cyan_dark                         rgba(0, 102, 102, 1);
+@define-color cyan_dark_blur_15                 rgba(0, 102, 102, 0.15);
+@define-color cyan_dark_blur_30                 rgba(0, 102, 102, 0.30);
+@define-color cyan_dark_blur_45                 rgba(0, 102, 102, 0.45);
+@define-color cyan_dark_blur_60                 rgba(0, 102, 102, 0.60);
+@define-color cyan_dark_blur_75                 rgba(0, 102, 102, 0.75);
+@define-color cyan_dark_blur_90                 rgba(0, 102, 102, 0.90);
+
+@define-color cyan_deep                         rgba(0, 128, 128, 1);
+@define-color cyan_deep_blur_15                 rgba(0, 128, 128, 0.15);
+@define-color cyan_deep_blur_30                 rgba(0, 128, 128, 0.30);
+@define-color cyan_deep_blur_45                 rgba(0, 128, 128, 0.45);
+@define-color cyan_deep_blur_60                 rgba(0, 128, 128, 0.60);
+@define-color cyan_deep_blur_75                 rgba(0, 128, 128, 0.75);
+@define-color cyan_deep_blur_90                 rgba(0, 128, 128, 0.90);
+
+@define-color cyan_vivid                        rgba(0, 204, 204, 1);
+@define-color cyan_vivid_blur_15                rgba(0, 204, 204, 0.15);
+@define-color cyan_vivid_blur_30                rgba(0, 204, 204, 0.30);
+@define-color cyan_vivid_blur_45                rgba(0, 204, 204, 0.45);
+@define-color cyan_vivid_blur_60                rgba(0, 204, 204, 0.60);
+@define-color cyan_vivid_blur_75                rgba(0, 204, 204, 0.75);
+@define-color cyan_vivid_blur_90                rgba(0, 204, 204, 0.90);
+
+@define-color cyan_pure                         rgba(0, 255, 255, 1);
+@define-color cyan_pure_blur_15                 rgba(0, 255, 255, 0.15);
+@define-color cyan_pure_blur_30                 rgba(0, 255, 255, 0.30);
+@define-color cyan_pure_blur_45                 rgba(0, 255, 255, 0.45);
+@define-color cyan_pure_blur_60                 rgba(0, 255, 255, 0.60);
+@define-color cyan_pure_blur_75                 rgba(0, 255, 255, 0.75);
+@define-color cyan_pure_blur_90                 rgba(0, 255, 255, 0.90);
+
+@define-color cyan_mid                          rgba(51, 255, 255, 1);
+@define-color cyan_mid_blur_15                  rgba(51, 255, 255, 0.15);
+@define-color cyan_mid_blur_30                  rgba(51, 255, 255, 0.30);
+@define-color cyan_mid_blur_45                  rgba(51, 255, 255, 0.45);
+@define-color cyan_mid_blur_60                  rgba(51, 255, 255, 0.60);
+@define-color cyan_mid_blur_75                  rgba(51, 255, 255, 0.75);
+@define-color cyan_mid_blur_90                  rgba(51, 255, 255, 0.90);
+
+@define-color cyan_light                        rgba(102, 255, 255, 1);
+@define-color cyan_light_blur_15                rgba(102, 255, 255, 0.15);
+@define-color cyan_light_blur_30                rgba(102, 255, 255, 0.30);
+@define-color cyan_light_blur_45                rgba(102, 255, 255, 0.45);
+@define-color cyan_light_blur_60                rgba(102, 255, 255, 0.60);
+@define-color cyan_light_blur_75                rgba(102, 255, 255, 0.75);
+@define-color cyan_light_blur_90                rgba(102, 255, 255, 0.90);
+
+@define-color cyan_lighter                      rgba(153, 255, 255, 1);
+@define-color cyan_lighter_blur_15              rgba(153, 255, 255, 0.15);
+@define-color cyan_lighter_blur_30              rgba(153, 255, 255, 0.30);
+@define-color cyan_lighter_blur_45              rgba(153, 255, 255, 0.45);
+@define-color cyan_lighter_blur_60              rgba(153, 255, 255, 0.60);
+@define-color cyan_lighter_blur_75              rgba(153, 255, 255, 0.75);
+@define-color cyan_lighter_blur_90              rgba(153, 255, 255, 0.90);
+
+@define-color cyan_lightest                     rgba(204, 255, 255, 1);
+@define-color cyan_lightest_blur_15             rgba(204, 255, 255, 0.15);
+@define-color cyan_lightest_blur_30             rgba(204, 255, 255, 0.30);
+@define-color cyan_lightest_blur_45             rgba(204, 255, 255, 0.45);
+@define-color cyan_lightest_blur_60             rgba(204, 255, 255, 0.60);
+@define-color cyan_lightest_blur_75             rgba(204, 255, 255, 0.75);
+@define-color cyan_lightest_blur_90             rgba(204, 255, 255, 0.90);
+
+@define-color cyan_pale                         rgba(224, 255, 255, 1);
+@define-color cyan_pale_blur_15                 rgba(224, 255, 255, 0.15);
+@define-color cyan_pale_blur_30                 rgba(224, 255, 255, 0.30);
+@define-color cyan_pale_blur_45                 rgba(224, 255, 255, 0.45);
+@define-color cyan_pale_blur_60                 rgba(224, 255, 255, 0.60);
+@define-color cyan_pale_blur_75                 rgba(224, 255, 255, 0.75);
+@define-color cyan_pale_blur_90                 rgba(224, 255, 255, 0.90);
+
+@define-color turquoise                         rgba(64, 224, 208, 1);
+@define-color turquoise_blur_15                 rgba(64, 224, 208, 0.15);
+@define-color turquoise_blur_30                 rgba(64, 224, 208, 0.30);
+@define-color turquoise_blur_45                 rgba(64, 224, 208, 0.45);
+@define-color turquoise_blur_60                 rgba(64, 224, 208, 0.60);
+@define-color turquoise_blur_75                 rgba(64, 224, 208, 0.75);
+@define-color turquoise_blur_90                 rgba(64, 224, 208, 0.90);
+
+@define-color turquoise_light                   rgba(127, 255, 212, 1);
+@define-color turquoise_light_blur_15           rgba(127, 255, 212, 0.15);
+@define-color turquoise_light_blur_30           rgba(127, 255, 212, 0.30);
+@define-color turquoise_light_blur_45           rgba(127, 255, 212, 0.45);
+@define-color turquoise_light_blur_60           rgba(127, 255, 212, 0.60);
+@define-color turquoise_light_blur_75           rgba(127, 255, 212, 0.75);
+@define-color turquoise_light_blur_90           rgba(127, 255, 212, 0.90);
+
+@define-color turquoise_pale                    rgba(175, 238, 238, 1);
+@define-color turquoise_pale_blur_15            rgba(175, 238, 238, 0.15);
+@define-color turquoise_pale_blur_30            rgba(175, 238, 238, 0.30);
+@define-color turquoise_pale_blur_45            rgba(175, 238, 238, 0.45);
+@define-color turquoise_pale_blur_60            rgba(175, 238, 238, 0.60);
+@define-color turquoise_pale_blur_75            rgba(175, 238, 238, 0.75);
+@define-color turquoise_pale_blur_90            rgba(175, 238, 238, 0.90);
+
+
+/* ────────────────────────────────────────────────────────────────────────────────
+     _     _       _     _             __  ____  _            ____  _            
+    | |   (_) __ _| |__ | |_          / / / ___|| | ___   _  | __ )| |_   _  ___ 
+    | |   | |/ _` | '_ \| __|  _____ / /  \___ \| |/ / | | | |  _ \| | | | |/ _ \
+    | |___| | (_| | | | | |_  |_____/ /    ___) |   <| |_| | | |_) | | |_| |  __/
+    |_____|_|\__, |_| |_|\__|      /_/    |____/|_|\_\\__, | |____/|_|\__,_|\___|
+             |___/                                    |___/                      
+   ──────────────────────────────────────────────────────────────────────────────── */
+@define-color sky                               rgba(0, 128, 204, 1);
+@define-color sky_blur_15                       rgba(0, 128, 204, 0.15);
+@define-color sky_blur_30                       rgba(0, 128, 204, 0.30);
+@define-color sky_blur_45                       rgba(0, 128, 204, 0.45);
+@define-color sky_blur_60                       rgba(0, 128, 204, 0.60);
+@define-color sky_blur_75                       rgba(0, 128, 204, 0.75);
+@define-color sky_blur_90                       rgba(0, 128, 204, 0.90);
+
+@define-color sky_darkest                       rgba(0, 18, 38, 1);
+@define-color sky_darkest_blur_15               rgba(0, 18, 38, 0.15);
+@define-color sky_darkest_blur_30               rgba(0, 18, 38, 0.30);
+@define-color sky_darkest_blur_45               rgba(0, 18, 38, 0.45);
+@define-color sky_darkest_blur_60               rgba(0, 18, 38, 0.60);
+@define-color sky_darkest_blur_75               rgba(0, 18, 38, 0.75);
+@define-color sky_darkest_blur_90               rgba(0, 18, 38, 0.90);
+
+@define-color sky_dark                          rgba(0, 51, 102, 1);
+@define-color sky_dark_blur_15                  rgba(0, 51, 102, 0.15);
+@define-color sky_dark_blur_30                  rgba(0, 51, 102, 0.30);
+@define-color sky_dark_blur_45                  rgba(0, 51, 102, 0.45);
+@define-color sky_dark_blur_60                  rgba(0, 51, 102, 0.60);
+@define-color sky_dark_blur_75                  rgba(0, 51, 102, 0.75);
+@define-color sky_dark_blur_90                  rgba(0, 51, 102, 0.90);
+
+@define-color sky_deep                          rgba(0, 85, 153, 1);
+@define-color sky_deep_blur_15                  rgba(0, 85, 153, 0.15);
+@define-color sky_deep_blur_30                  rgba(0, 85, 153, 0.30);
+@define-color sky_deep_blur_45                  rgba(0, 85, 153, 0.45);
+@define-color sky_deep_blur_60                  rgba(0, 85, 153, 0.60);
+@define-color sky_deep_blur_75                  rgba(0, 85, 153, 0.75);
+@define-color sky_deep_blur_90                  rgba(0, 85, 153, 0.90);
+
+@define-color sky_vivid                         rgba(0, 170, 255, 1);
+@define-color sky_vivid_blur_15                 rgba(0, 170, 255, 0.15);
+@define-color sky_vivid_blur_30                 rgba(0, 170, 255, 0.30);
+@define-color sky_vivid_blur_45                 rgba(0, 170, 255, 0.45);
+@define-color sky_vivid_blur_60                 rgba(0, 170, 255, 0.60);
+@define-color sky_vivid_blur_75                 rgba(0, 170, 255, 0.75);
+@define-color sky_vivid_blur_90                 rgba(0, 170, 255, 0.90);
+
+@define-color sky_mid                           rgba(51, 187, 255, 1);
+@define-color sky_mid_blur_15                   rgba(51, 187, 255, 0.15);
+@define-color sky_mid_blur_30                   rgba(51, 187, 255, 0.30);
+@define-color sky_mid_blur_45                   rgba(51, 187, 255, 0.45);
+@define-color sky_mid_blur_60                   rgba(51, 187, 255, 0.60);
+@define-color sky_mid_blur_75                   rgba(51, 187, 255, 0.75);
+@define-color sky_mid_blur_90                   rgba(51, 187, 255, 0.90);
+
+@define-color sky_light                         rgba(102, 204, 255, 1);
+@define-color sky_light_blur_15                 rgba(102, 204, 255, 0.15);
+@define-color sky_light_blur_30                 rgba(102, 204, 255, 0.30);
+@define-color sky_light_blur_45                 rgba(102, 204, 255, 0.45);
+@define-color sky_light_blur_60                 rgba(102, 204, 255, 0.60);
+@define-color sky_light_blur_75                 rgba(102, 204, 255, 0.75);
+@define-color sky_light_blur_90                 rgba(102, 204, 255, 0.90);
+
+@define-color sky_lighter                       rgba(153, 221, 255, 1);
+@define-color sky_lighter_blur_15               rgba(153, 221, 255, 0.15);
+@define-color sky_lighter_blur_30               rgba(153, 221, 255, 0.30);
+@define-color sky_lighter_blur_45               rgba(153, 221, 255, 0.45);
+@define-color sky_lighter_blur_60               rgba(153, 221, 255, 0.60);
+@define-color sky_lighter_blur_75               rgba(153, 221, 255, 0.75);
+@define-color sky_lighter_blur_90               rgba(153, 221, 255, 0.90);
+
+@define-color sky_lightest                      rgba(204, 238, 255, 1);
+@define-color sky_lightest_blur_15              rgba(204, 238, 255, 0.15);
+@define-color sky_lightest_blur_30              rgba(204, 238, 255, 0.30);
+@define-color sky_lightest_blur_45              rgba(204, 238, 255, 0.45);
+@define-color sky_lightest_blur_60              rgba(204, 238, 255, 0.60);
+@define-color sky_lightest_blur_75              rgba(204, 238, 255, 0.75);
+@define-color sky_lightest_blur_90              rgba(204, 238, 255, 0.90);
+
+@define-color sky_pale                          rgba(229, 245, 255, 1);
+@define-color sky_pale_blur_15                  rgba(229, 245, 255, 0.15);
+@define-color sky_pale_blur_30                  rgba(229, 245, 255, 0.30);
+@define-color sky_pale_blur_45                  rgba(229, 245, 255, 0.45);
+@define-color sky_pale_blur_60                  rgba(229, 245, 255, 0.60);
+@define-color sky_pale_blur_75                  rgba(229, 245, 255, 0.75);
+@define-color sky_pale_blur_90                  rgba(229, 245, 255, 0.90);
+/* ────────────────────────────────────────────────────────────────────────────────
+     ____  _            
+    | __ )| |_   _  ___ 
+    |  _ \| | | | |/ _ \
+    | |_) | | |_| |  __/
+    |____/|_|\__,_|\___|
+
+   ──────────────────────────────────────────────────────────────────────────────── */
+@define-color blue                              rgba(0, 0, 204, 1);
+@define-color blue_blur_15                      rgba(0, 0, 204, 0.15);
+@define-color blue_blur_30                      rgba(0, 0, 204, 0.30);
+@define-color blue_blur_45                      rgba(0, 0, 204, 0.45);
+@define-color blue_blur_60                      rgba(0, 0, 204, 0.60);
+@define-color blue_blur_75                      rgba(0, 0, 204, 0.75);
+@define-color blue_blur_90                      rgba(0, 0, 204, 0.90);
+
+@define-color blue_darkest                      rgba(0, 0, 26, 1);
+@define-color blue_darkest_blur_15              rgba(0, 0, 26, 0.15);
+@define-color blue_darkest_blur_30              rgba(0, 0, 26, 0.30);
+@define-color blue_darkest_blur_45              rgba(0, 0, 26, 0.45);
+@define-color blue_darkest_blur_60              rgba(0, 0, 26, 0.60);
+@define-color blue_darkest_blur_75              rgba(0, 0, 26, 0.75);
+@define-color blue_darkest_blur_90              rgba(0, 0, 26, 0.90);
+
+@define-color blue_darker                       rgba(0, 0, 51, 1);
+@define-color blue_darker_blur_15               rgba(0, 0, 51, 0.15);
+@define-color blue_darker_blur_30               rgba(0, 0, 51, 0.30);
+@define-color blue_darker_blur_45               rgba(0, 0, 51, 0.45);
+@define-color blue_darker_blur_60               rgba(0, 0, 51, 0.60);
+@define-color blue_darker_blur_75               rgba(0, 0, 51, 0.75);
+@define-color blue_darker_blur_90               rgba(0, 0, 51, 0.90);
+
+@define-color blue_dark                         rgba(0, 0, 102, 1);
+@define-color blue_dark_blur_15                 rgba(0, 0, 102, 0.15);
+@define-color blue_dark_blur_30                 rgba(0, 0, 102, 0.30);
+@define-color blue_dark_blur_45                 rgba(0, 0, 102, 0.45);
+@define-color blue_dark_blur_60                 rgba(0, 0, 102, 0.60);
+@define-color blue_dark_blur_75                 rgba(0, 0, 102, 0.75);
+@define-color blue_dark_blur_90                 rgba(0, 0, 102, 0.90);
+
+@define-color blue_deep                         rgba(0, 0, 153, 1);
+@define-color blue_deep_blur_15                 rgba(0, 0, 153, 0.15);
+@define-color blue_deep_blur_30                 rgba(0, 0, 153, 0.30);
+@define-color blue_deep_blur_45                 rgba(0, 0, 153, 0.45);
+@define-color blue_deep_blur_60                 rgba(0, 0, 153, 0.60);
+@define-color blue_deep_blur_75                 rgba(0, 0, 153, 0.75);
+@define-color blue_deep_blur_90                 rgba(0, 0, 153, 0.90);
+
+@define-color blue_navy                         rgba(0, 0, 128, 1);
+@define-color blue_navy_blur_15                 rgba(0, 0, 128, 0.15);
+@define-color blue_navy_blur_30                 rgba(0, 0, 128, 0.30);
+@define-color blue_navy_blur_45                 rgba(0, 0, 128, 0.45);
+@define-color blue_navy_blur_60                 rgba(0, 0, 128, 0.60);
+@define-color blue_navy_blur_75                 rgba(0, 0, 128, 0.75);
+@define-color blue_navy_blur_90                 rgba(0, 0, 128, 0.90);
+
+@define-color blue_pure                         rgba(0, 0, 255, 1);
+@define-color blue_pure_blur_15                 rgba(0, 0, 255, 0.15);
+@define-color blue_pure_blur_30                 rgba(0, 0, 255, 0.30);
+@define-color blue_pure_blur_45                 rgba(0, 0, 255, 0.45);
+@define-color blue_pure_blur_60                 rgba(0, 0, 255, 0.60);
+@define-color blue_pure_blur_75                 rgba(0, 0, 255, 0.75);
+@define-color blue_pure_blur_90                 rgba(0, 0, 255, 0.90);
+
+@define-color blue_royal                        rgba(65, 105, 225, 1);
+@define-color blue_royal_blur_15                rgba(65, 105, 225, 0.15);
+@define-color blue_royal_blur_30                rgba(65, 105, 225, 0.30);
+@define-color blue_royal_blur_45                rgba(65, 105, 225, 0.45);
+@define-color blue_royal_blur_60                rgba(65, 105, 225, 0.60);
+@define-color blue_royal_blur_75                rgba(65, 105, 225, 0.75);
+@define-color blue_royal_blur_90                rgba(65, 105, 225, 0.90);
+
+@define-color blue_mid                          rgba(51, 51, 255, 1);
+@define-color blue_mid_blur_15                  rgba(51, 51, 255, 0.15);
+@define-color blue_mid_blur_30                  rgba(51, 51, 255, 0.30);
+@define-color blue_mid_blur_45                  rgba(51, 51, 255, 0.45);
+@define-color blue_mid_blur_60                  rgba(51, 51, 255, 0.60);
+@define-color blue_mid_blur_75                  rgba(51, 51, 255, 0.75);
+@define-color blue_mid_blur_90                  rgba(51, 51, 255, 0.90);
+
+@define-color blue_light                        rgba(102, 102, 255, 1);
+@define-color blue_light_blur_15                rgba(102, 102, 255, 0.15);
+@define-color blue_light_blur_30                rgba(102, 102, 255, 0.30);
+@define-color blue_light_blur_45                rgba(102, 102, 255, 0.45);
+@define-color blue_light_blur_60                rgba(102, 102, 255, 0.60);
+@define-color blue_light_blur_75                rgba(102, 102, 255, 0.75);
+@define-color blue_light_blur_90                rgba(102, 102, 255, 0.90);
+
+@define-color blue_lighter                      rgba(153, 153, 255, 1);
+@define-color blue_lighter_blur_15              rgba(153, 153, 255, 0.15);
+@define-color blue_lighter_blur_30              rgba(153, 153, 255, 0.30);
+@define-color blue_lighter_blur_45              rgba(153, 153, 255, 0.45);
+@define-color blue_lighter_blur_60              rgba(153, 153, 255, 0.60);
+@define-color blue_lighter_blur_75              rgba(153, 153, 255, 0.75);
+@define-color blue_lighter_blur_90              rgba(153, 153, 255, 0.90);
+
+@define-color blue_lightest                     rgba(204, 204, 255, 1);
+@define-color blue_lightest_blur_15             rgba(204, 204, 255, 0.15);
+@define-color blue_lightest_blur_30             rgba(204, 204, 255, 0.30);
+@define-color blue_lightest_blur_45             rgba(204, 204, 255, 0.45);
+@define-color blue_lightest_blur_60             rgba(204, 204, 255, 0.60);
+@define-color blue_lightest_blur_75             rgba(204, 204, 255, 0.75);
+@define-color blue_lightest_blur_90             rgba(204, 204, 255, 0.90);
+
+@define-color blue_pale                         rgba(229, 229, 255, 1);
+@define-color blue_pale_blur_15                 rgba(229, 229, 255, 0.15);
+@define-color blue_pale_blur_30                 rgba(229, 229, 255, 0.30);
+@define-color blue_pale_blur_45                 rgba(229, 229, 255, 0.45);
+@define-color blue_pale_blur_60                 rgba(229, 229, 255, 0.60);
+@define-color blue_pale_blur_75                 rgba(229, 229, 255, 0.75);
+@define-color blue_pale_blur_90                 rgba(229, 229, 255, 0.90);
+
+/* ────────────────────────────────────────────────────────────────────────────────
+     ____  _                      ____                   _           
+    | __ )| |_   _  ___          |  _ \ _   _ _ __ _ __ | | ___ 
+    |  _ \| | | | |/ _ \  _____  | |_) | | | | '__| '_ \| |/ _ \
+    | |_) | | |_| |  __/ |_____| |  __/| |_| | |  | |_) | |  __/
+    |____/|_|\__,_|\___|         |_|    \__,_|_|  | .__/|_|\___|
+                                                  |_|                
+   ──────────────────────────────────────────────────────────────────────────────── */
+@define-color indigo                            rgba(51, 0, 204, 1);
+@define-color indigo_blur_15                    rgba(51, 0, 204, 0.15);
+@define-color indigo_blur_30                    rgba(51, 0, 204, 0.30);
+@define-color indigo_blur_45                    rgba(51, 0, 204, 0.45);
+@define-color indigo_blur_60                    rgba(51, 0, 204, 0.60);
+@define-color indigo_blur_75                    rgba(51, 0, 204, 0.75);
+@define-color indigo_blur_90                    rgba(51, 0, 204, 0.90);
+
+@define-color indigo_darkest                    rgba(13, 0, 38, 1);
+@define-color indigo_darkest_blur_15            rgba(13, 0, 38, 0.15);
+@define-color indigo_darkest_blur_30            rgba(13, 0, 38, 0.30);
+@define-color indigo_darkest_blur_45            rgba(13, 0, 38, 0.45);
+@define-color indigo_darkest_blur_60            rgba(13, 0, 38, 0.60);
+@define-color indigo_darkest_blur_75            rgba(13, 0, 38, 0.75);
+@define-color indigo_darkest_blur_90            rgba(13, 0, 38, 0.90);
+
+@define-color indigo_dark                       rgba(26, 0, 102, 1);
+@define-color indigo_dark_blur_15               rgba(26, 0, 102, 0.15);
+@define-color indigo_dark_blur_30               rgba(26, 0, 102, 0.30);
+@define-color indigo_dark_blur_45               rgba(26, 0, 102, 0.45);
+@define-color indigo_dark_blur_60               rgba(26, 0, 102, 0.60);
+@define-color indigo_dark_blur_75               rgba(26, 0, 102, 0.75);
+@define-color indigo_dark_blur_90               rgba(26, 0, 102, 0.90);
+
+@define-color indigo_deep                       rgba(42, 0, 153, 1);
+@define-color indigo_deep_blur_15               rgba(42, 0, 153, 0.15);
+@define-color indigo_deep_blur_30               rgba(42, 0, 153, 0.30);
+@define-color indigo_deep_blur_45               rgba(42, 0, 153, 0.45);
+@define-color indigo_deep_blur_60               rgba(42, 0, 153, 0.60);
+@define-color indigo_deep_blur_75               rgba(42, 0, 153, 0.75);
+@define-color indigo_deep_blur_90               rgba(42, 0, 153, 0.90);
+
+@define-color indigo_vivid                      rgba(68, 0, 255, 1);
+@define-color indigo_vivid_blur_15              rgba(68, 0, 255, 0.15);
+@define-color indigo_vivid_blur_30              rgba(68, 0, 255, 0.30);
+@define-color indigo_vivid_blur_45              rgba(68, 0, 255, 0.45);
+@define-color indigo_vivid_blur_60              rgba(68, 0, 255, 0.60);
+@define-color indigo_vivid_blur_75              rgba(68, 0, 255, 0.75);
+@define-color indigo_vivid_blur_90              rgba(68, 0, 255, 0.90);
+
+@define-color indigo_mid                        rgba(102, 51, 255, 1);
+@define-color indigo_mid_blur_15                rgba(102, 51, 255, 0.15);
+@define-color indigo_mid_blur_30                rgba(102, 51, 255, 0.30);
+@define-color indigo_mid_blur_45                rgba(102, 51, 255, 0.45);
+@define-color indigo_mid_blur_60                rgba(102, 51, 255, 0.60);
+@define-color indigo_mid_blur_75                rgba(102, 51, 255, 0.75);
+@define-color indigo_mid_blur_90                rgba(102, 51, 255, 0.90);
+
+@define-color indigo_light                      rgba(136, 102, 255, 1);
+@define-color indigo_light_blur_15              rgba(136, 102, 255, 0.15);
+@define-color indigo_light_blur_30              rgba(136, 102, 255, 0.30);
+@define-color indigo_light_blur_45              rgba(136, 102, 255, 0.45);
+@define-color indigo_light_blur_60              rgba(136, 102, 255, 0.60);
+@define-color indigo_light_blur_75              rgba(136, 102, 255, 0.75);
+@define-color indigo_light_blur_90              rgba(136, 102, 255, 0.90);
+
+@define-color indigo_lighter                    rgba(170, 153, 255, 1);
+@define-color indigo_lighter_blur_15            rgba(170, 153, 255, 0.15);
+@define-color indigo_lighter_blur_30            rgba(170, 153, 255, 0.30);
+@define-color indigo_lighter_blur_45            rgba(170, 153, 255, 0.45);
+@define-color indigo_lighter_blur_60            rgba(170, 153, 255, 0.60);
+@define-color indigo_lighter_blur_75            rgba(170, 153, 255, 0.75);
+@define-color indigo_lighter_blur_90            rgba(170, 153, 255, 0.90);
+
+@define-color indigo_lightest                   rgba(204, 187, 255, 1);
+@define-color indigo_lightest_blur_15           rgba(204, 187, 255, 0.15);
+@define-color indigo_lightest_blur_30           rgba(204, 187, 255, 0.30);
+@define-color indigo_lightest_blur_45           rgba(204, 187, 255, 0.45);
+@define-color indigo_lightest_blur_60           rgba(204, 187, 255, 0.60);
+@define-color indigo_lightest_blur_75           rgba(204, 187, 255, 0.75);
+@define-color indigo_lightest_blur_90           rgba(204, 187, 255, 0.90);
+
+@define-color indigo_pale                       rgba(238, 229, 255, 1);
+@define-color indigo_pale_blur_15               rgba(238, 229, 255, 0.15);
+@define-color indigo_pale_blur_30               rgba(238, 229, 255, 0.30);
+@define-color indigo_pale_blur_45               rgba(238, 229, 255, 0.45);
+@define-color indigo_pale_blur_60               rgba(238, 229, 255, 0.60);
+@define-color indigo_pale_blur_75               rgba(238, 229, 255, 0.75);
+@define-color indigo_pale_blur_90               rgba(238, 229, 255, 0.90);
+
+
+/* ────────────────────────────────────────────────────────────────────────────────
+     ____                   _               __     ___       _      _   
+    |  _ \ _   _ _ __ _ __ | | ___          \ \   / (_) ___ | | ___| |_ 
+    | |_) | | | | '__| '_ \| |/ _ \  _____   \ \ / /| |/ _ \| |/ _ \ __|
+    |  __/| |_| | |  | |_) | |  __/ |_____|   \ V / | | (_) | |  __/ |_ 
+    |_|    \__,_|_|  | .__/|_|\___|            \_/  |_|\___/|_|\___|\__|
+                     |_|                                                
+   ──────────────────────────────────────────────────────────────────────────────── */
+@define-color purple                            rgba(170, 0, 170, 1);
+@define-color purple_blur_15                    rgba(170, 0, 170, 0.15);
+@define-color purple_blur_30                    rgba(170, 0, 170, 0.30);
+@define-color purple_blur_45                    rgba(170, 0, 170, 0.45);
+@define-color purple_blur_60                    rgba(170, 0, 170, 0.60);
+@define-color purple_blur_75                    rgba(170, 0, 170, 0.75);
+@define-color purple_blur_90                    rgba(170, 0, 170, 0.90);
+
+@define-color purple_darkest                    rgba(26, 0, 26, 1);
+@define-color purple_darkest_blur_15            rgba(26, 0, 26, 0.15);
+@define-color purple_darkest_blur_30            rgba(26, 0, 26, 0.30);
+@define-color purple_darkest_blur_45            rgba(26, 0, 26, 0.45);
+@define-color purple_darkest_blur_60            rgba(26, 0, 26, 0.60);
+@define-color purple_darkest_blur_75            rgba(26, 0, 26, 0.75);
+@define-color purple_darkest_blur_90            rgba(26, 0, 26, 0.90);
+
+@define-color purple_darker                     rgba(51, 0, 51, 1);
+@define-color purple_darker_blur_15             rgba(51, 0, 51, 0.15);
+@define-color purple_darker_blur_30             rgba(51, 0, 51, 0.30);
+@define-color purple_darker_blur_45             rgba(51, 0, 51, 0.45);
+@define-color purple_darker_blur_60             rgba(51, 0, 51, 0.60);
+@define-color purple_darker_blur_75             rgba(51, 0, 51, 0.75);
+@define-color purple_darker_blur_90             rgba(51, 0, 51, 0.90);
+
+@define-color purple_dark                       rgba(102, 0, 102, 1);
+@define-color purple_dark_blur_15               rgba(102, 0, 102, 0.15);
+@define-color purple_dark_blur_30               rgba(102, 0, 102, 0.30);
+@define-color purple_dark_blur_45               rgba(102, 0, 102, 0.45);
+@define-color purple_dark_blur_60               rgba(102, 0, 102, 0.60);
+@define-color purple_dark_blur_75               rgba(102, 0, 102, 0.75);
+@define-color purple_dark_blur_90               rgba(102, 0, 102, 0.90);
+
+@define-color purple_deep                       rgba(128, 0, 128, 1);
+@define-color purple_deep_blur_15               rgba(128, 0, 128, 0.15);
+@define-color purple_deep_blur_30               rgba(128, 0, 128, 0.30);
+@define-color purple_deep_blur_45               rgba(128, 0, 128, 0.45);
+@define-color purple_deep_blur_60               rgba(128, 0, 128, 0.60);
+@define-color purple_deep_blur_75               rgba(128, 0, 128, 0.75);
+@define-color purple_deep_blur_90               rgba(128, 0, 128, 0.90);
+
+@define-color purple_vivid                      rgba(204, 0, 204, 1);
+@define-color purple_vivid_blur_15              rgba(204, 0, 204, 0.15);
+@define-color purple_vivid_blur_30              rgba(204, 0, 204, 0.30);
+@define-color purple_vivid_blur_45              rgba(204, 0, 204, 0.45);
+@define-color purple_vivid_blur_60              rgba(204, 0, 204, 0.60);
+@define-color purple_vivid_blur_75              rgba(204, 0, 204, 0.75);
+@define-color purple_vivid_blur_90              rgba(204, 0, 204, 0.90);
+
+@define-color purple_pure                       rgba(255, 0, 255, 1);
+@define-color purple_pure_blur_15               rgba(255, 0, 255, 0.15);
+@define-color purple_pure_blur_30               rgba(255, 0, 255, 0.30);
+@define-color purple_pure_blur_45               rgba(255, 0, 255, 0.45);
+@define-color purple_pure_blur_60               rgba(255, 0, 255, 0.60);
+@define-color purple_pure_blur_75               rgba(255, 0, 255, 0.75);
+@define-color purple_pure_blur_90               rgba(255, 0, 255, 0.90);
+
+@define-color purple_mid                        rgba(255, 51, 255, 1);
+@define-color purple_mid_blur_15                rgba(255, 51, 255, 0.15);
+@define-color purple_mid_blur_30                rgba(255, 51, 255, 0.30);
+@define-color purple_mid_blur_45                rgba(255, 51, 255, 0.45);
+@define-color purple_mid_blur_60                rgba(255, 51, 255, 0.60);
+@define-color purple_mid_blur_75                rgba(255, 51, 255, 0.75);
+@define-color purple_mid_blur_90                rgba(255, 51, 255, 0.90);
+
+@define-color purple_light                      rgba(255, 102, 255, 1);
+@define-color purple_light_blur_15              rgba(255, 102, 255, 0.15);
+@define-color purple_light_blur_30              rgba(255, 102, 255, 0.30);
+@define-color purple_light_blur_45              rgba(255, 102, 255, 0.45);
+@define-color purple_light_blur_60              rgba(255, 102, 255, 0.60);
+@define-color purple_light_blur_75              rgba(255, 102, 255, 0.75);
+@define-color purple_light_blur_90              rgba(255, 102, 255, 0.90);
+
+@define-color purple_lighter                    rgba(255, 153, 255, 1);
+@define-color purple_lighter_blur_15            rgba(255, 153, 255, 0.15);
+@define-color purple_lighter_blur_30            rgba(255, 153, 255, 0.30);
+@define-color purple_lighter_blur_45            rgba(255, 153, 255, 0.45);
+@define-color purple_lighter_blur_60            rgba(255, 153, 255, 0.60);
+@define-color purple_lighter_blur_75            rgba(255, 153, 255, 0.75);
+@define-color purple_lighter_blur_90            rgba(255, 153, 255, 0.90);
+
+@define-color purple_lightest                   rgba(255, 204, 255, 1);
+@define-color purple_lightest_blur_15           rgba(255, 204, 255, 0.15);
+@define-color purple_lightest_blur_30           rgba(255, 204, 255, 0.30);
+@define-color purple_lightest_blur_45           rgba(255, 204, 255, 0.45);
+@define-color purple_lightest_blur_60           rgba(255, 204, 255, 0.60);
+@define-color purple_lightest_blur_75           rgba(255, 204, 255, 0.75);
+@define-color purple_lightest_blur_90           rgba(255, 204, 255, 0.90);
+
+@define-color purple_pale                       rgba(255, 229, 255, 1);
+@define-color purple_pale_blur_15               rgba(255, 229, 255, 0.15);
+@define-color purple_pale_blur_30               rgba(255, 229, 255, 0.30);
+@define-color purple_pale_blur_45               rgba(255, 229, 255, 0.45);
+@define-color purple_pale_blur_60               rgba(255, 229, 255, 0.60);
+@define-color purple_pale_blur_75               rgba(255, 229, 255, 0.75);
+@define-color purple_pale_blur_90               rgba(255, 229, 255, 0.90);
+
+@define-color violet                            rgba(139, 0, 255, 1);
+@define-color violet_blur_15                    rgba(139, 0, 255, 0.15);
+@define-color violet_blur_30                    rgba(139, 0, 255, 0.30);
+@define-color violet_blur_45                    rgba(139, 0, 255, 0.45);
+@define-color violet_blur_60                    rgba(139, 0, 255, 0.60);
+@define-color violet_blur_75                    rgba(139, 0, 255, 0.75);
+@define-color violet_blur_90                    rgba(139, 0, 255, 0.90);
+
+@define-color violet_light                      rgba(191, 128, 255, 1);
+@define-color violet_light_blur_15              rgba(191, 128, 255, 0.15);
+@define-color violet_light_blur_30              rgba(191, 128, 255, 0.30);
+@define-color violet_light_blur_45              rgba(191, 128, 255, 0.45);
+@define-color violet_light_blur_60              rgba(191, 128, 255, 0.60);
+@define-color violet_light_blur_75              rgba(191, 128, 255, 0.75);
+@define-color violet_light_blur_90              rgba(191, 128, 255, 0.90);
+
+@define-color violet_pale                       rgba(229, 204, 255, 1);
+@define-color violet_pale_blur_15               rgba(229, 204, 255, 0.15);
+@define-color violet_pale_blur_30               rgba(229, 204, 255, 0.30);
+@define-color violet_pale_blur_45               rgba(229, 204, 255, 0.45);
+@define-color violet_pale_blur_60               rgba(229, 204, 255, 0.60);
+@define-color violet_pale_blur_75               rgba(229, 204, 255, 0.75);
+@define-color violet_pale_blur_90               rgba(229, 204, 255, 0.90);
+
+
+/* ────────────────────────────────────────────────────────────────────────────────
+     __  __                        _             __  ____  _       _    
+    |  \/  | __ _  __ _  ___ _ __ | |_ __ _     / / |  _ \(_)_ __ | | __
+    | |\/| |/ _` |/ _` |/ _ \ '_ \| __/ _` |   / /  | |_) | | '_ \| |/ /
+    | |  | | (_| | (_| |  __/ | | | || (_| |  / /   |  __/| | | | |   < 
+    |_|  |_|\__,_|\__, |\___|_| |_|\__\__,_| /_/    |_|   |_|_| |_|_|\_\
+                  |___/                                                 
+   ──────────────────────────────────────────────────────────────────────────────── */
+@define-color magenta                           rgba(204, 0, 102, 1);
+@define-color magenta_blur_15                   rgba(204, 0, 102, 0.15);
+@define-color magenta_blur_30                   rgba(204, 0, 102, 0.30);
+@define-color magenta_blur_45                   rgba(204, 0, 102, 0.45);
+@define-color magenta_blur_60                   rgba(204, 0, 102, 0.60);
+@define-color magenta_blur_75                   rgba(204, 0, 102, 0.75);
+@define-color magenta_blur_90                   rgba(204, 0, 102, 0.90);
+
+@define-color magenta_dark                      rgba(102, 0, 51, 1);
+@define-color magenta_dark_blur_15              rgba(102, 0, 51, 0.15);
+@define-color magenta_dark_blur_30              rgba(102, 0, 51, 0.30);
+@define-color magenta_dark_blur_45              rgba(102, 0, 51, 0.45);
+@define-color magenta_dark_blur_60              rgba(102, 0, 51, 0.60);
+@define-color magenta_dark_blur_75              rgba(102, 0, 51, 0.75);
+@define-color magenta_dark_blur_90              rgba(102, 0, 51, 0.90);
+
+@define-color magenta_deep                      rgba(153, 0, 68, 1);
+@define-color magenta_deep_blur_15              rgba(153, 0, 68, 0.15);
+@define-color magenta_deep_blur_30              rgba(153, 0, 68, 0.30);
+@define-color magenta_deep_blur_45              rgba(153, 0, 68, 0.45);
+@define-color magenta_deep_blur_60              rgba(153, 0, 68, 0.60);
+@define-color magenta_deep_blur_75              rgba(153, 0, 68, 0.75);
+@define-color magenta_deep_blur_90              rgba(153, 0, 68, 0.90);
+
+@define-color magenta_vivid                     rgba(255, 0, 128, 1);
+@define-color magenta_vivid_blur_15             rgba(255, 0, 128, 0.15);
+@define-color magenta_vivid_blur_30             rgba(255, 0, 128, 0.30);
+@define-color magenta_vivid_blur_45             rgba(255, 0, 128, 0.45);
+@define-color magenta_vivid_blur_60             rgba(255, 0, 128, 0.60);
+@define-color magenta_vivid_blur_75             rgba(255, 0, 128, 0.75);
+@define-color magenta_vivid_blur_90             rgba(255, 0, 128, 0.90);
+
+@define-color magenta_mid                       rgba(255, 51, 153, 1);
+@define-color magenta_mid_blur_15               rgba(255, 51, 153, 0.15);
+@define-color magenta_mid_blur_30               rgba(255, 51, 153, 0.30);
+@define-color magenta_mid_blur_45               rgba(255, 51, 153, 0.45);
+@define-color magenta_mid_blur_60               rgba(255, 51, 153, 0.60);
+@define-color magenta_mid_blur_75               rgba(255, 51, 153, 0.75);
+@define-color magenta_mid_blur_90               rgba(255, 51, 153, 0.90);
+
+@define-color magenta_light                     rgba(255, 102, 178, 1);
+@define-color magenta_light_blur_15             rgba(255, 102, 178, 0.15);
+@define-color magenta_light_blur_30             rgba(255, 102, 178, 0.30);
+@define-color magenta_light_blur_45             rgba(255, 102, 178, 0.45);
+@define-color magenta_light_blur_60             rgba(255, 102, 178, 0.60);
+@define-color magenta_light_blur_75             rgba(255, 102, 178, 0.75);
+@define-color magenta_light_blur_90             rgba(255, 102, 178, 0.90);
+
+@define-color magenta_lighter                   rgba(255, 153, 204, 1);
+@define-color magenta_lighter_blur_15           rgba(255, 153, 204, 0.15);
+@define-color magenta_lighter_blur_30           rgba(255, 153, 204, 0.30);
+@define-color magenta_lighter_blur_45           rgba(255, 153, 204, 0.45);
+@define-color magenta_lighter_blur_60           rgba(255, 153, 204, 0.60);
+@define-color magenta_lighter_blur_75           rgba(255, 153, 204, 0.75);
+@define-color magenta_lighter_blur_90           rgba(255, 153, 204, 0.90);
+
+@define-color magenta_lightest                  rgba(255, 204, 229, 1);
+@define-color magenta_lightest_blur_15          rgba(255, 204, 229, 0.15);
+@define-color magenta_lightest_blur_30          rgba(255, 204, 229, 0.30);
+@define-color magenta_lightest_blur_45          rgba(255, 204, 229, 0.45);
+@define-color magenta_lightest_blur_60          rgba(255, 204, 229, 0.60);
+@define-color magenta_lightest_blur_75          rgba(255, 204, 229, 0.75);
+@define-color magenta_lightest_blur_90          rgba(255, 204, 229, 0.90);
+
+@define-color pink_hot                          rgba(255, 105, 180, 1);
+@define-color pink_hot_blur_15                  rgba(255, 105, 180, 0.15);
+@define-color pink_hot_blur_30                  rgba(255, 105, 180, 0.30);
+@define-color pink_hot_blur_45                  rgba(255, 105, 180, 0.45);
+@define-color pink_hot_blur_60                  rgba(255, 105, 180, 0.60);
+@define-color pink_hot_blur_75                  rgba(255, 105, 180, 0.75);
+@define-color pink_hot_blur_90                  rgba(255, 105, 180, 0.90);
+
+@define-color pink                              rgba(255, 133, 194, 1);
+@define-color pink_blur_15                      rgba(255, 133, 194, 0.15);
+@define-color pink_blur_30                      rgba(255, 133, 194, 0.30);
+@define-color pink_blur_45                      rgba(255, 133, 194, 0.45);
+@define-color pink_blur_60                      rgba(255, 133, 194, 0.60);
+@define-color pink_blur_75                      rgba(255, 133, 194, 0.75);
+@define-color pink_blur_90                      rgba(255, 133, 194, 0.90);
+
+@define-color pink_light                        rgba(255, 179, 217, 1);
+@define-color pink_light_blur_15                rgba(255, 179, 217, 0.15);
+@define-color pink_light_blur_30                rgba(255, 179, 217, 0.30);
+@define-color pink_light_blur_45                rgba(255, 179, 217, 0.45);
+@define-color pink_light_blur_60                rgba(255, 179, 217, 0.60);
+@define-color pink_light_blur_75                rgba(255, 179, 217, 0.75);
+@define-color pink_light_blur_90                rgba(255, 179, 217, 0.90);
+
+@define-color pink_pale                         rgba(255, 224, 240, 1);
+@define-color pink_pale_blur_15                 rgba(255, 224, 240, 0.15);
+@define-color pink_pale_blur_30                 rgba(255, 224, 240, 0.30);
+@define-color pink_pale_blur_45                 rgba(255, 224, 240, 0.45);
+@define-color pink_pale_blur_60                 rgba(255, 224, 240, 0.60);
+@define-color pink_pale_blur_75                 rgba(255, 224, 240, 0.75);
+@define-color pink_pale_blur_90                 rgba(255, 224, 240, 0.90);
+
+@define-color rose                              rgba(255, 0, 127, 1);
+@define-color rose_blur_15                      rgba(255, 0, 127, 0.15);
+@define-color rose_blur_30                      rgba(255, 0, 127, 0.30);
+@define-color rose_blur_45                      rgba(255, 0, 127, 0.45);
+@define-color rose_blur_60                      rgba(255, 0, 127, 0.60);
+@define-color rose_blur_75                      rgba(255, 0, 127, 0.75);
+@define-color rose_blur_90                      rgba(255, 0, 127, 0.90);
+
+@define-color rose_light                        rgba(255, 102, 170, 1);
+@define-color rose_light_blur_15                rgba(255, 102, 170, 0.15);
+@define-color rose_light_blur_30                rgba(255, 102, 170, 0.30);
+@define-color rose_light_blur_45                rgba(255, 102, 170, 0.45);
+@define-color rose_light_blur_60                rgba(255, 102, 170, 0.60);
+@define-color rose_light_blur_75                rgba(255, 102, 170, 0.75);
+@define-color rose_light_blur_90                rgba(255, 102, 170, 0.90);
+
+@define-color rose_pale                         rgba(255, 204, 229, 1);
+@define-color rose_pale_blur_15                 rgba(255, 204, 229, 0.15);
+@define-color rose_pale_blur_30                 rgba(255, 204, 229, 0.30);
+@define-color rose_pale_blur_45                 rgba(255, 204, 229, 0.45);
+@define-color rose_pale_blur_60                 rgba(255, 204, 229, 0.60);
+@define-color rose_pale_blur_75                 rgba(255, 204, 229, 0.75);
+@define-color rose_pale_blur_90                 rgba(255, 204, 229, 0.90);
+
+
+/* ────────────────────────────────────────────────────────────────────────────────
+     ____                          
+    | __ ) _ __ _____      ___ __  
+    |  _ \| '__/ _ \ \ /\ / / '_ \ 
+    | |_) | | | (_) \ V  V /| | | |
+    |____/|_|  \___/ \_/\_/ |_| |_|
+
+   ──────────────────────────────────────────────────────────────────────────────── */
+@define-color brown                             rgba(139, 69, 19, 1);
+@define-color brown_blur_15                     rgba(139, 69, 19, 0.15);
+@define-color brown_blur_30                     rgba(139, 69, 19, 0.3);
+@define-color brown_blur_60                     rgba(139, 69, 19, 0.6);
+@define-color brown_blur_90                     rgba(139, 69, 19, 0.9);
+
+@define-color brown_darkest                     rgba(13, 5, 0, 1);
+@define-color brown_darkest_blur_15             rgba(13, 5, 0, 0.15);
+@define-color brown_darkest_blur_30             rgba(13, 5, 0, 0.30);
+@define-color brown_darkest_blur_45             rgba(13, 5, 0, 0.45);
+@define-color brown_darkest_blur_60             rgba(13, 5, 0, 0.60);
+@define-color brown_darkest_blur_75             rgba(13, 5, 0, 0.75);
+@define-color brown_darkest_blur_90             rgba(13, 5, 0, 0.90);
+
+@define-color brown_darker                      rgba(26, 10, 0, 1);
+@define-color brown_darker_blur_15              rgba(26, 10, 0, 0.15);
+@define-color brown_darker_blur_30              rgba(26, 10, 0, 0.30);
+@define-color brown_darker_blur_45              rgba(26, 10, 0, 0.45);
+@define-color brown_darker_blur_60              rgba(26, 10, 0, 0.60);
+@define-color brown_darker_blur_75              rgba(26, 10, 0, 0.75);
+@define-color brown_darker_blur_90              rgba(26, 10, 0, 0.90);
+
+@define-color brown_dark                        rgba(59, 21, 0, 1);
+@define-color brown_dark_blur_15                rgba(59, 21, 0, 0.15);
+@define-color brown_dark_blur_30                rgba(59, 21, 0, 0.30);
+@define-color brown_dark_blur_45                rgba(59, 21, 0, 0.45);
+@define-color brown_dark_blur_60                rgba(59, 21, 0, 0.60);
+@define-color brown_dark_blur_75                rgba(59, 21, 0, 0.75);
+@define-color brown_dark_blur_90                rgba(59, 21, 0, 0.90);
+
+@define-color brown_deep                        rgba(92, 34, 0, 1);
+@define-color brown_deep_blur_15                rgba(92, 34, 0, 0.15);
+@define-color brown_deep_blur_30                rgba(92, 34, 0, 0.30);
+@define-color brown_deep_blur_45                rgba(92, 34, 0, 0.45);
+@define-color brown_deep_blur_60                rgba(92, 34, 0, 0.60);
+@define-color brown_deep_blur_75                rgba(92, 34, 0, 0.75);
+@define-color brown_deep_blur_90                rgba(92, 34, 0, 0.90);
+
+@define-color brown_sienna                      rgba(114, 53, 32, 1);
+@define-color brown_sienna_blur_15              rgba(114, 53, 32, 0.15);
+@define-color brown_sienna_blur_30              rgba(114, 53, 32, 0.30);
+@define-color brown_sienna_blur_45              rgba(114, 53, 32, 0.45);
+@define-color brown_sienna_blur_60              rgba(114, 53, 32, 0.60);
+@define-color brown_sienna_blur_75              rgba(114, 53, 32, 0.75);
+@define-color brown_sienna_blur_90              rgba(114, 53, 32, 0.90);
+
+@define-color brown_mid                         rgba(160, 82, 45, 1);
+@define-color brown_mid_blur_15                 rgba(160, 82, 45, 0.15);
+@define-color brown_mid_blur_30                 rgba(160, 82, 45, 0.30);
+@define-color brown_mid_blur_45                 rgba(160, 82, 45, 0.45);
+@define-color brown_mid_blur_60                 rgba(160, 82, 45, 0.60);
+@define-color brown_mid_blur_75                 rgba(160, 82, 45, 0.75);
+@define-color brown_mid_blur_90                 rgba(160, 82, 45, 0.90);
+
+@define-color brown_warm                        rgba(196, 108, 58, 1);
+@define-color brown_warm_blur_15                rgba(196, 108, 58, 0.15);
+@define-color brown_warm_blur_30                rgba(196, 108, 58, 0.30);
+@define-color brown_warm_blur_45                rgba(196, 108, 58, 0.45);
+@define-color brown_warm_blur_60                rgba(196, 108, 58, 0.60);
+@define-color brown_warm_blur_75                rgba(196, 108, 58, 0.75);
+@define-color brown_warm_blur_90                rgba(196, 108, 58, 0.90);
+
+@define-color brown_light                       rgba(210, 145, 107, 1);
+@define-color brown_light_blur_15               rgba(210, 145, 107, 0.15);
+@define-color brown_light_blur_30               rgba(210, 145, 107, 0.30);
+@define-color brown_light_blur_45               rgba(210, 145, 107, 0.45);
+@define-color brown_light_blur_60               rgba(210, 145, 107, 0.60);
+@define-color brown_light_blur_75               rgba(210, 145, 107, 0.75);
+@define-color brown_light_blur_90               rgba(210, 145, 107, 0.90);
+
+@define-color brown_lighter                     rgba(224, 184, 154, 1);
+@define-color brown_lighter_blur_15             rgba(224, 184, 154, 0.15);
+@define-color brown_lighter_blur_30             rgba(224, 184, 154, 0.30);
+@define-color brown_lighter_blur_45             rgba(224, 184, 154, 0.45);
+@define-color brown_lighter_blur_60             rgba(224, 184, 154, 0.60);
+@define-color brown_lighter_blur_75             rgba(224, 184, 154, 0.75);
+@define-color brown_lighter_blur_90             rgba(224, 184, 154, 0.90);
+
+@define-color brown_lightest                    rgba(239, 213, 191, 1);
+@define-color brown_lightest_blur_15            rgba(239, 213, 191, 0.15);
+@define-color brown_lightest_blur_30            rgba(239, 213, 191, 0.30);
+@define-color brown_lightest_blur_45            rgba(239, 213, 191, 0.45);
+@define-color brown_lightest_blur_60            rgba(239, 213, 191, 0.60);
+@define-color brown_lightest_blur_75            rgba(239, 213, 191, 0.75);
+@define-color brown_lightest_blur_90            rgba(239, 213, 191, 0.90);
+
+@define-color brown_pale                        rgba(245, 232, 220, 1);
+@define-color brown_pale_blur_15                rgba(245, 232, 220, 0.15);
+@define-color brown_pale_blur_30                rgba(245, 232, 220, 0.30);
+@define-color brown_pale_blur_45                rgba(245, 232, 220, 0.45);
+@define-color brown_pale_blur_60                rgba(245, 232, 220, 0.60);
+@define-color brown_pale_blur_75                rgba(245, 232, 220, 0.75);
+@define-color brown_pale_blur_90                rgba(245, 232, 220, 0.90);
+
+
+/* ────────────────────────────────────────────────────────────────────────────────
+     _____                           __   ____                
+    |_   _|_ _ _   _ _ __   ___     / /  / ___|_ __ ___ _   _ 
+      | |/ _` | | | | '_ \ / _ \   / /  | |  _| '__/ _ \ | | |
+      | | (_| | |_| | |_) |  __/  / /   | |_| | | |  __/ |_| |
+      |_|\__,_|\__,_| .__/ \___| /_/     \____|_|  \___|\__, |
+                    |_|                                 |___/ 
+   ──────────────────────────────────────────────────────────────────────────────── */
+@define-color taupe                             rgba(107, 92, 80, 1);
+@define-color taupe_blur_15                     rgba(107, 92, 80, 0.15);
+@define-color taupe_blur_30                     rgba(107, 92, 80, 0.30);
+@define-color taupe_blur_45                     rgba(107, 92, 80, 0.45);
+@define-color taupe_blur_60                     rgba(107, 92, 80, 0.60);
+@define-color taupe_blur_75                     rgba(107, 92, 80, 0.75);
+@define-color taupe_blur_90                     rgba(107, 92, 80, 0.90);
+
+@define-color taupe_darkest                     rgba(26, 20, 16, 1);
+@define-color taupe_darkest_blur_15             rgba(26, 20, 16, 0.15);
+@define-color taupe_darkest_blur_30             rgba(26, 20, 16, 0.30);
+@define-color taupe_darkest_blur_45             rgba(26, 20, 16, 0.45);
+@define-color taupe_darkest_blur_60             rgba(26, 20, 16, 0.60);
+@define-color taupe_darkest_blur_75             rgba(26, 20, 16, 0.75);
+@define-color taupe_darkest_blur_90             rgba(26, 20, 16, 0.90);
+
+@define-color taupe_darker                      rgba(46, 38, 31, 1);
+@define-color taupe_darker_blur_15              rgba(46, 38, 31, 0.15);
+@define-color taupe_darker_blur_30              rgba(46, 38, 31, 0.30);
+@define-color taupe_darker_blur_45              rgba(46, 38, 31, 0.45);
+@define-color taupe_darker_blur_60              rgba(46, 38, 31, 0.60);
+@define-color taupe_darker_blur_75              rgba(46, 38, 31, 0.75);
+@define-color taupe_darker_blur_90              rgba(46, 38, 31, 0.90);
+
+@define-color taupe_dark                        rgba(74, 61, 51, 1);
+@define-color taupe_dark_blur_15                rgba(74, 61, 51, 0.15);
+@define-color taupe_dark_blur_30                rgba(74, 61, 51, 0.30);
+@define-color taupe_dark_blur_45                rgba(74, 61, 51, 0.45);
+@define-color taupe_dark_blur_60                rgba(74, 61, 51, 0.60);
+@define-color taupe_dark_blur_75                rgba(74, 61, 51, 0.75);
+@define-color taupe_dark_blur_90                rgba(74, 61, 51, 0.90);
+
+@define-color taupe_mid                         rgba(140, 123, 110, 1);
+@define-color taupe_mid_blur_15                 rgba(140, 123, 110, 0.15);
+@define-color taupe_mid_blur_30                 rgba(140, 123, 110, 0.30);
+@define-color taupe_mid_blur_45                 rgba(140, 123, 110, 0.45);
+@define-color taupe_mid_blur_60                 rgba(140, 123, 110, 0.60);
+@define-color taupe_mid_blur_75                 rgba(140, 123, 110, 0.75);
+@define-color taupe_mid_blur_90                 rgba(140, 123, 110, 0.90);
+
+@define-color taupe_light                       rgba(176, 160, 151, 1);
+@define-color taupe_light_blur_15               rgba(176, 160, 151, 0.15);
+@define-color taupe_light_blur_30               rgba(176, 160, 151, 0.30);
+@define-color taupe_light_blur_45               rgba(176, 160, 151, 0.45);
+@define-color taupe_light_blur_60               rgba(176, 160, 151, 0.60);
+@define-color taupe_light_blur_75               rgba(176, 160, 151, 0.75);
+@define-color taupe_light_blur_90               rgba(176, 160, 151, 0.90);
+
+@define-color taupe_lighter                     rgba(207, 197, 188, 1);
+@define-color taupe_lighter_blur_15             rgba(207, 197, 188, 0.15);
+@define-color taupe_lighter_blur_30             rgba(207, 197, 188, 0.30);
+@define-color taupe_lighter_blur_45             rgba(207, 197, 188, 0.45);
+@define-color taupe_lighter_blur_60             rgba(207, 197, 188, 0.60);
+@define-color taupe_lighter_blur_75             rgba(207, 197, 188, 0.75);
+@define-color taupe_lighter_blur_90             rgba(207, 197, 188, 0.90);
+
+@define-color taupe_lightest                    rgba(229, 221, 216, 1);
+@define-color taupe_lightest_blur_15            rgba(229, 221, 216, 0.15);
+@define-color taupe_lightest_blur_30            rgba(229, 221, 216, 0.30);
+@define-color taupe_lightest_blur_45            rgba(229, 221, 216, 0.45);
+@define-color taupe_lightest_blur_60            rgba(229, 221, 216, 0.60);
+@define-color taupe_lightest_blur_75            rgba(229, 221, 216, 0.75);
+@define-color taupe_lightest_blur_90            rgba(229, 221, 216, 0.90);
+
+@define-color taupe_pale                        rgba(245, 240, 235, 1);
+@define-color taupe_pale_blur_15                rgba(245, 240, 235, 0.15);
+@define-color taupe_pale_blur_30                rgba(245, 240, 235, 0.30);
+@define-color taupe_pale_blur_45                rgba(245, 240, 235, 0.45);
+@define-color taupe_pale_blur_60                rgba(245, 240, 235, 0.60);
+@define-color taupe_pale_blur_75                rgba(245, 240, 235, 0.75);
+@define-color taupe_pale_blur_90                rgba(245, 240, 235, 0.90);
+
+
+/* ────────────────────────────────────────────────────────────────────────────────
+     ____       _                       ____                          
+    | __ )  ___(_) __ _  ___           / ___|_ __ ___  __ _ _ __ ___  
+    |  _ \ / _ \ |/ _` |/ _ \  _____  | |   | '__/ _ \/ _` | '_ ` _ \ 
+    | |_) |  __/ | (_| |  __/ |_____| | |___| | |  __/ (_| | | | | | |
+    |____/ \___|_|\__, |\___|          \____|_|  \___|\__,_|_| |_| |_|
+                  |___/                                               
+   ──────────────────────────────────────────────────────────────────────────────── */
+@define-color sand                              rgba(194, 169, 122, 1);
+@define-color sand_blur_15                      rgba(194, 169, 122, 0.15);
+@define-color sand_blur_30                      rgba(194, 169, 122, 0.30);
+@define-color sand_blur_45                      rgba(194, 169, 122, 0.45);
+@define-color sand_blur_60                      rgba(194, 169, 122, 0.60);
+@define-color sand_blur_75                      rgba(194, 169, 122, 0.75);
+@define-color sand_blur_90                      rgba(194, 169, 122, 0.90);
+
+@define-color sand_dark                         rgba(138, 115, 85, 1);
+@define-color sand_dark_blur_15                 rgba(138, 115, 85, 0.15);
+@define-color sand_dark_blur_30                 rgba(138, 115, 85, 0.30);
+@define-color sand_dark_blur_45                 rgba(138, 115, 85, 0.45);
+@define-color sand_dark_blur_60                 rgba(138, 115, 85, 0.60);
+@define-color sand_dark_blur_75                 rgba(138, 115, 85, 0.75);
+@define-color sand_dark_blur_90                 rgba(138, 115, 85, 0.90);
+
+@define-color sand_light                        rgba(212, 192, 154, 1);
+@define-color sand_light_blur_15                rgba(212, 192, 154, 0.15);
+@define-color sand_light_blur_30                rgba(212, 192, 154, 0.30);
+@define-color sand_light_blur_45                rgba(212, 192, 154, 0.45);
+@define-color sand_light_blur_60                rgba(212, 192, 154, 0.60);
+@define-color sand_light_blur_75                rgba(212, 192, 154, 0.75);
+@define-color sand_light_blur_90                rgba(212, 192, 154, 0.90);
+
+@define-color sand_lighter                      rgba(232, 217, 188, 1);
+@define-color sand_lighter_blur_15              rgba(232, 217, 188, 0.15);
+@define-color sand_lighter_blur_30              rgba(232, 217, 188, 0.30);
+@define-color sand_lighter_blur_45              rgba(232, 217, 188, 0.45);
+@define-color sand_lighter_blur_60              rgba(232, 217, 188, 0.60);
+@define-color sand_lighter_blur_75              rgba(232, 217, 188, 0.75);
+@define-color sand_lighter_blur_90              rgba(232, 217, 188, 0.90);
+
+@define-color beige                             rgba(245, 240, 220, 1);
+@define-color beige_blur_15                     rgba(245, 240, 220, 0.15);
+@define-color beige_blur_30                     rgba(245, 240, 220, 0.30);
+@define-color beige_blur_45                     rgba(245, 240, 220, 0.45);
+@define-color beige_blur_60                     rgba(245, 240, 220, 0.60);
+@define-color beige_blur_75                     rgba(245, 240, 220, 0.75);
+@define-color beige_blur_90                     rgba(245, 240, 220, 0.90);
+
+@define-color cream                             rgba(255, 253, 208, 1);
+@define-color cream_blur_15                     rgba(255, 253, 208, 0.15);
+@define-color cream_blur_30                     rgba(255, 253, 208, 0.30);
+@define-color cream_blur_45                     rgba(255, 253, 208, 0.45);
+@define-color cream_blur_60                     rgba(255, 253, 208, 0.60);
+@define-color cream_blur_75                     rgba(255, 253, 208, 0.75);
+@define-color cream_blur_90                     rgba(255, 253, 208, 0.90);
+
+@define-color ivory                             rgba(255, 255, 240, 1);
+@define-color ivory_blur_15                     rgba(255, 255, 240, 0.15);
+@define-color ivory_blur_30                     rgba(255, 255, 240, 0.30);
+@define-color ivory_blur_45                     rgba(255, 255, 240, 0.45);
+@define-color ivory_blur_60                     rgba(255, 255, 240, 0.60);
+@define-color ivory_blur_75                     rgba(255, 255, 240, 0.75);
+@define-color ivory_blur_90                     rgba(255, 255, 240, 0.90);
+
+@define-color linen                             rgba(250, 240, 230, 1);
+@define-color linen_blur_15                     rgba(250, 240, 230, 0.15);
+@define-color linen_blur_30                     rgba(250, 240, 230, 0.30);
+@define-color linen_blur_45                     rgba(250, 240, 230, 0.45);
+@define-color linen_blur_60                     rgba(250, 240, 230, 0.60);
+@define-color linen_blur_75                     rgba(250, 240, 230, 0.75);
+@define-color linen_blur_90                     rgba(250, 240, 230, 0.90);
+
+@define-color wheat                             rgba(245, 222, 179, 1);
+@define-color wheat_blur_15                     rgba(245, 222, 179, 0.15);
+@define-color wheat_blur_30                     rgba(245, 222, 179, 0.30);
+@define-color wheat_blur_45                     rgba(245, 222, 179, 0.45);
+@define-color wheat_blur_60                     rgba(245, 222, 179, 0.60);
+@define-color wheat_blur_75                     rgba(245, 222, 179, 0.75);
+@define-color wheat_blur_90                     rgba(245, 222, 179, 0.90);
+/* ────────────────────────────────────────────────────────────────────────────────
+      ___  _ _                     _  ___           _    _ 
+     / _ \| (_)_   _____          | |/ / |__   __ _| | _(_)
+    | | | | | \ \ / / _ \  _____  | ' /| '_ \ / _` | |/ / |
+    | |_| | | |\ V /  __/ |_____| | . \| | | | (_| |   <| |
+     \___/|_|_| \_/ \___|         |_|\_\_| |_|\__,_|_|\_\_|
+                                                       
+   ──────────────────────────────────────────────────────────────────────────────── */
+@define-color olive                             rgba(107, 107, 0, 1);
+@define-color olive_blur_15                     rgba(107, 107, 0, 0.15);
+@define-color olive_blur_30                     rgba(107, 107, 0, 0.30);
+@define-color olive_blur_45                     rgba(107, 107, 0, 0.45);
+@define-color olive_blur_60                     rgba(107, 107, 0, 0.60);
+@define-color olive_blur_75                     rgba(107, 107, 0, 0.75);
+@define-color olive_blur_90                     rgba(107, 107, 0, 0.90);
+
+@define-color olive_darkest                     rgba(13, 13, 0, 1);
+@define-color olive_darkest_blur_15             rgba(13, 13, 0, 0.15);
+@define-color olive_darkest_blur_30             rgba(13, 13, 0, 0.30);
+@define-color olive_darkest_blur_45             rgba(13, 13, 0, 0.45);
+@define-color olive_darkest_blur_60             rgba(13, 13, 0, 0.60);
+@define-color olive_darkest_blur_75             rgba(13, 13, 0, 0.75);
+@define-color olive_darkest_blur_90             rgba(13, 13, 0, 0.90);
+
+@define-color olive_darker                      rgba(31, 31, 0, 1);
+@define-color olive_darker_blur_15              rgba(31, 31, 0, 0.15);
+@define-color olive_darker_blur_30              rgba(31, 31, 0, 0.30);
+@define-color olive_darker_blur_45              rgba(31, 31, 0, 0.45);
+@define-color olive_darker_blur_60              rgba(31, 31, 0, 0.60);
+@define-color olive_darker_blur_75              rgba(31, 31, 0, 0.75);
+@define-color olive_darker_blur_90              rgba(31, 31, 0, 0.90);
+
+@define-color olive_dark                        rgba(61, 61, 0, 1);
+@define-color olive_dark_blur_15                rgba(61, 61, 0, 0.15);
+@define-color olive_dark_blur_30                rgba(61, 61, 0, 0.30);
+@define-color olive_dark_blur_45                rgba(61, 61, 0, 0.45);
+@define-color olive_dark_blur_60                rgba(61, 61, 0, 0.60);
+@define-color olive_dark_blur_75                rgba(61, 61, 0, 0.75);
+@define-color olive_dark_blur_90                rgba(61, 61, 0, 0.90);
+
+@define-color olive_deep                        rgba(85, 85, 0, 1);
+@define-color olive_deep_blur_15                rgba(85, 85, 0, 0.15);
+@define-color olive_deep_blur_30                rgba(85, 85, 0, 0.30);
+@define-color olive_deep_blur_45                rgba(85, 85, 0, 0.45);
+@define-color olive_deep_blur_60                rgba(85, 85, 0, 0.60);
+@define-color olive_deep_blur_75                rgba(85, 85, 0, 0.75);
+@define-color olive_deep_blur_90                rgba(85, 85, 0, 0.90);
+
+@define-color olive_mid                         rgba(128, 128, 0, 1);
+@define-color olive_mid_blur_15                 rgba(128, 128, 0, 0.15);
+@define-color olive_mid_blur_30                 rgba(128, 128, 0, 0.30);
+@define-color olive_mid_blur_45                 rgba(128, 128, 0, 0.45);
+@define-color olive_mid_blur_60                 rgba(128, 128, 0, 0.60);
+@define-color olive_mid_blur_75                 rgba(128, 128, 0, 0.75);
+@define-color olive_mid_blur_90                 rgba(128, 128, 0, 0.90);
+
+@define-color khaki_dark                        rgba(81, 70, 26, 1);
+@define-color khaki_dark_blur_15                rgba(81, 70, 26, 0.15);
+@define-color khaki_dark_blur_30                rgba(81, 70, 26, 0.30);
+@define-color khaki_dark_blur_45                rgba(81, 70, 26, 0.45);
+@define-color khaki_dark_blur_60                rgba(81, 70, 26, 0.60);
+@define-color khaki_dark_blur_75                rgba(81, 70, 26, 0.75);
+@define-color khaki_dark_blur_90                rgba(81, 70, 26, 0.90);
+
+@define-color khaki                             rgba(139, 117, 54, 1);
+@define-color khaki_blur_15                     rgba(139, 117, 54, 0.15);
+@define-color khaki_blur_30                     rgba(139, 117, 54, 0.30);
+@define-color khaki_blur_45                     rgba(139, 117, 54, 0.45);
+@define-color khaki_blur_60                     rgba(139, 117, 54, 0.60);
+@define-color khaki_blur_75                     rgba(139, 117, 54, 0.75);
+@define-color khaki_blur_90                     rgba(139, 117, 54, 0.90);
+
+@define-color khaki_light                       rgba(191, 170, 110, 1);
+@define-color khaki_light_blur_15               rgba(191, 170, 110, 0.15);
+@define-color khaki_light_blur_30               rgba(191, 170, 110, 0.30);
+@define-color khaki_light_blur_45               rgba(191, 170, 110, 0.45);
+@define-color khaki_light_blur_60               rgba(191, 170, 110, 0.60);
+@define-color khaki_light_blur_75               rgba(191, 170, 110, 0.75);
+@define-color khaki_light_blur_90               rgba(191, 170, 110, 0.90);
+
+@define-color khaki_lighter                     rgba(212, 200, 150, 1);
+@define-color khaki_lighter_blur_15             rgba(212, 200, 150, 0.15);
+@define-color khaki_lighter_blur_30             rgba(212, 200, 150, 0.30);
+@define-color khaki_lighter_blur_45             rgba(212, 200, 150, 0.45);
+@define-color khaki_lighter_blur_60             rgba(212, 200, 150, 0.60);
+@define-color khaki_lighter_blur_75             rgba(212, 200, 150, 0.75);
+@define-color khaki_lighter_blur_90             rgba(212, 200, 150, 0.90);
+
+@define-color khaki_pale                        rgba(234, 227, 195, 1);
+@define-color khaki_pale_blur_15                rgba(234, 227, 195, 0.15);
+@define-color khaki_pale_blur_30                rgba(234, 227, 195, 0.30);
+@define-color khaki_pale_blur_45                rgba(234, 227, 195, 0.45);
+@define-color khaki_pale_blur_60                rgba(234, 227, 195, 0.60);
+@define-color khaki_pale_blur_75                rgba(234, 227, 195, 0.75);
+@define-color khaki_pale_blur_90                rgba(234, 227, 195, 0.90);
