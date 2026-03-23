@@ -195,3 +195,9 @@ echo "* { current-image: url(\"$blurredwallpaper\", height); }" >"$rasifile"
 _writeLog "Generate new cached wallpaper square-$wallpaperfilename"
 magick "$tmpwallpaper" -gravity Center -extent 1:1 "$squarewallpaper"
 cp "$squarewallpaper" "$generatedversions/square-$wallpaperfilename.png"
+
+# -----------------------------------------------------
+# Update SDDM Wallpaper
+# -----------------------------------------------------
+
+sudo /etc/sddm/set-wallpaper.sh

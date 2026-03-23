@@ -6,16 +6,16 @@
 # /___/                                     
 # 
 
-ml4w_cache_folder="$HOME/.cache/ml4w/hyprland-dotfiles"
+cache_folder="$HOME/.cache/ml4w/hyprland-dotfiles"
 gamemode_monitor="$HOME/.config/hypr/conf/monitors/gamemode.conf"
 
 if [ -f $HOME/.config/ml4w/settings/gamemode-enabled ]; then
-  if [ -f $ml4w_cache_folder/last_monitor.conf ]; then
-    cat $ml4w_cache_folder/last_monitor.conf > $HOME/.config/hypr/conf/monitor.conf
-    rm $ml4w_cache_folder/last_monitor.conf
+  if [ -f $cache_folder/last_monitor.conf ]; then
+    cat $cache_folder/last_monitor.conf > $HOME/.config/hypr/conf/monitor.conf
+    rm $cache_folder/last_monitor.conf
   fi
-  if [ -f $ml4w_cache_folder/restart-wpauto ]; then
-    rm $ml4w_cache_folder/restart-wpauto
+  if [ -f $cache_folder/restart-wpauto ]; then
+    rm $cache_folder/restart-wpauto
     $HOME/.config/hypr/scripts/wallpaper-automation.sh &
   fi
   hyprctl reload
@@ -23,11 +23,11 @@ if [ -f $HOME/.config/ml4w/settings/gamemode-enabled ]; then
   notify-send "Gamemode deactivated" "Animations and blur enabled"
 else
   if [ -f $gamemode_monitor ]; then
-    cat $HOME/.config/hypr/conf/monitor.conf > $ml4w_cache_folder/last_monitor.conf
+    cat $HOME/.config/hypr/conf/monitor.conf > $cache_folder/last_monitor.conf
     echo "source = $gamemode_monitor" > $HOME/.config/hypr/conf/monitor.conf
   fi
-  if [ -f $ml4w_cache_folder/wallpaper-automation ]; then
-    touch $ml4w_cache_folder/restart-wpauto
+  if [ -f $cache_folder/wallpaper-automation ]; then
+    touch $cache_folder/restart-wpauto
     $HOME/.config/hypr/scripts/wallpaper-automation.sh
   fi
   hyprctl --batch "\

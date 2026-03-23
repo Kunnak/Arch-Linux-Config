@@ -48,7 +48,9 @@
     "javascript.enabled": true,
     "html.enabled": true,
     "css.enabled": true,
+    "css.validate": false,
     "json.enabled": true,
+    "json.validate": false,
     "yaml.enabled": true,
     "xml.enabled": true,
     "lua.enabled": true,
@@ -96,6 +98,7 @@
     "diagnostic.showDeprecated": true,
     "diagnostic.autoRefresh": true,
     "diagnostic.refreshOnInsertMode": false,
+    "diagnostic.filesIgnore": ["**/*.css"],
     
     "coc.preferences.formatOnSaveFiletypes": [],
     
