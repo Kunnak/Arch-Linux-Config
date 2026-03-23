@@ -1,11 +1,10 @@
 /* ───────────────────────────────────────────────────────────────────────────── 
-      ____                           __        ___                         _   
-     / ___|   _  __ _ _ __           \ \      / / | ___   __ _  ___  _   _| |_ 
-    | |  | | | |/ _` | '_ \   _____   \ \ /\ / /| |/ _ \ / _` |/ _ \| | | | __|
-    | |__| |_| | (_| | | | | |_____|   \ V  V / | | (_) | (_| | (_) | |_| | |_ 
-     \____\__, |\__,_|_| |_|            \_/\_/  |_|\___/ \__, |\___/ \__,_|\__|
-          |___/                                          |___/                 
-
+     ____        __             _ _   
+    |  _ \  ___ / _| __ _ _   _| | |_ 
+    | | | |/ _ \ |_ / _` | | | | | __|
+    | |_| |  __/  _| (_| | |_| | | |_ 
+    |____/ \___|_|  \__,_|\__,_|_|\__|
+                                      
    ───────────────────────────────────────────────────────────────────────────── */
 
 /*
@@ -50,13 +49,14 @@ button {
 	background-position: center;
 	background-size: 15%;
 	animation: gradient_f 20s ease-in infinite;
+    color: @white;
 	border-radius: 80px;
 	border: 0px;
 	transition: all 0.3s cubic-bezier(.55, 0.0, .28, 1.682), box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
-	background-color: @cyan_vivid_blur_15;
+	background-color: @black_blur_30;
 	margin: 10px;
-    min-width: 150px;
-    min-height: 150px;
+    min-width: 50px;
+    min-height: 50px;
 }
 
 /* button:focus { */
@@ -66,13 +66,13 @@ button {
 /* } */
 
 button:hover {
-    background-color: @cyan_vivid_blur_30;
+    background-color: @black_blur_20;
     background-size: 16%;
 	opacity: 0.8;
     color: @white;
     margin: 30px;
     border-radius: 80px;
-    box-shadow: 0 0 10px @cyan_pure;
+    box-shadow: 0 0 20px @white_blur_20;
 }
 
 /* Adjust the size of the icon or content inside the button */

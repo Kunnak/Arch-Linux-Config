@@ -1,11 +1,10 @@
 /* ───────────────────────────────────────────────────────────────────────────── 
-      ____                           __        ___                         _   
-     / ___|   _  __ _ _ __           \ \      / / | ___   __ _  ___  _   _| |_ 
-    | |  | | | |/ _` | '_ \   _____   \ \ /\ / /| |/ _ \ / _` |/ _ \| | | | __|
-    | |__| |_| | (_| | | | | |_____|   \ V  V / | | (_) | (_| | (_) | |_| | |_ 
-     \____\__, |\__,_|_| |_|            \_/\_/  |_|\___/ \__, |\___/ \__,_|\__|
-          |___/                                          |___/                 
-
+     _     _       _     _             ____          _ 
+    | |   (_) __ _| |__ | |_          |  _ \ ___  __| |
+    | |   | |/ _` | '_ \| __|  _____  | |_) / _ \/ _` |
+    | |___| | (_| | | | | |_  |_____| |  _ <  __/ (_| |
+    |_____|_|\__, |_| |_|\__|         |_| \_\___|\__,_|
+             |___/                                     
    ───────────────────────────────────────────────────────────────────────────── */
 
 /*
@@ -50,10 +49,11 @@ button {
 	background-position: center;
 	background-size: 15%;
 	animation: gradient_f 20s ease-in infinite;
+    color: @red_pale;
 	border-radius: 80px;
 	border: 0px;
 	transition: all 0.3s cubic-bezier(.55, 0.0, .28, 1.682), box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
-	background-color: @cyan_vivid_blur_15;
+	background-color: @red_light_blur_15;
 	margin: 10px;
     min-width: 150px;
     min-height: 150px;
@@ -66,19 +66,20 @@ button {
 /* } */
 
 button:hover {
-    background-color: @cyan_vivid_blur_30;
+    background-color: @red_light_blur_30;
     background-size: 16%;
 	opacity: 0.8;
-    color: @white;
+    color: @red_pale;
     margin: 30px;
     border-radius: 80px;
-    box-shadow: 0 0 10px @cyan_pure;
+    box-shadow: 0 0 10px @red_light;
 }
 
 /* Adjust the size of the icon or content inside the button */
 button span {
     font-size: 1.2em;
 }
+
 
 /*
 ─────────────────────────────────────────────────────────────────────────
