@@ -27,8 +27,9 @@ WLOGOUT_THEMES["Red-Skeleton"]="light-red"
 
 # Hyprland Border-Farben pro Theme
 declare -A HYPR_BORDERS
-HYPR_BORDERS["Gruvbox"]="0xaaeb2f30 0xff210a16 90deg"
-HYPR_BORDERS["Beach"]="0xaa83a598 0xff0d3221 90deg"
+HYPR_BORDERS["Beach"]="0xffc64cb8 0xff3f324e 90deg"
+HYPR_BORDERS["Blue-Asian-Arch"]="0xff1892dc 0xff2d3a47 90deg"
+HYPR_BORDERS["Gruvbox"]="0xfffabd2f 0x11fb7f1a 90deg"
 HYPR_BORDERS["Red-Skeleton"]="0xaaeb2f30 0xff210a16 90deg"
 
 # ───────────────────────────────────────────────────────────────────────────────────────────────────────────────
