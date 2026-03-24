@@ -1,7 +1,7 @@
 @import url("/home/yannick/.config/colors/global-colors.css");
-/* ============================================
+/* ───────────────────────────────────────────────────────────
    GRUVBOX DARK (dein aktuelles Theme)
-   ============================================ */
+   ─────────────────────────────────────────────────────────── */
 @define-color bg #282828;
 @define-color bg0 #282828;
 @define-color bg1 #3c3836;
@@ -45,9 +45,9 @@ window#waybar {
     transition-duration: 0.5s;
 }
 
-/* ============================================
+/* ───────────────────────────────────────────────────────────
    ALLE MODULE - Einheitliches Basis-Styling
-   ============================================ */
+   ─────────────────────────────────────────────────────────── */
 
 #workspaces,
 #custom-weather,
@@ -61,7 +61,7 @@ window#waybar {
 #clock.date,
 #custom-power,
 #taskbar {
-    background-color: @bg1;
+    background-color: #210a16;
     color: @fg;
     padding: 6px 12px;
     margin: 4px 2px;
@@ -69,9 +69,9 @@ window#waybar {
     border: 1px solid @red;
 }
 
-/* ============================================
+/* ───────────────────────────────────────────────────────────
    TASKBAR
-   ============================================ */
+   ─────────────────────────────────────────────────────────── */
 
 #taskbar {
     padding: 4px 8px;
@@ -101,9 +101,9 @@ window#waybar {
     color: @fg0;
 }
 
-/* ============================================
+/* ───────────────────────────────────────────────────────────
    WORKSPACES
-   ============================================ */
+   ─────────────────────────────────────────────────────────── */
 
 .modules-left > widget:first-child > #workspaces {
     margin-left: 4px;
@@ -114,7 +114,7 @@ window#waybar {
 }
 
 #workspaces button {
-    color: @fg4;
+    color: #ebdbb2;
     background-color: transparent;
     padding: 4px 12px;
     margin: 0 2px;
@@ -147,9 +147,9 @@ window#waybar {
     color: @bg;
 }
 
-/* ============================================
+/* ───────────────────────────────────────────────────────────
    RECHTE MODULE - Farben
-   ============================================ */
+   ─────────────────────────────────────────────────────────── */
 
 /* Wetter */
 #custom-weather {
@@ -158,7 +158,7 @@ window#waybar {
 
 /* CPU Auslastung */
 #cpu {
-    color: @white;
+    color: #ff3333;
 }
 
 #cpu.warning {
@@ -171,7 +171,7 @@ window#waybar {
 
 /* CPU Temperatur */
 #temperature {
-    color: @white;
+    color: #ebdbb2;
 }
 
 #temperature.critical {
@@ -181,12 +181,12 @@ window#waybar {
 
 /* GPU */
 #custom-gpu {
-    color: @white;
+    color: #ebdbb2;
 }
 
 /* Netzwerk */
 #network {
-    color: @white;
+    color: #ff3333;
 }
 
 #network.disconnected {
@@ -195,7 +195,7 @@ window#waybar {
 
 /* Audio (Lautsprecher) */
 #pulseaudio {
-    color: @white;
+    color: #ebdbb2;
 }
 
 #pulseaudio.muted {
@@ -204,7 +204,7 @@ window#waybar {
 
 /* Mikrofon */
 #pulseaudio#microphone {
-    color: @white;
+    color: #ebdbb2;
 }
 
 #pulseaudio#microphone.muted {
@@ -213,13 +213,13 @@ window#waybar {
 
 /* Uhrzeit */
 #clock {
-    color: @white;
+    color: #ff3333;
     font-weight: bold;
 }
 
 /* Datum */
 #clock.date {
-    color: @white;
+    color: #ff3333;
     font-weight: bold;
 }
 
@@ -234,9 +234,9 @@ window#waybar {
     background-color: @red-bright;
 }
 
-/* ============================================
+/* ───────────────────────────────────────────────────────────
    TOOLTIP
-   ============================================ */
+   ─────────────────────────────────────────────────────────── */
 
 tooltip {
     background-color: @bg;

@@ -53,26 +53,20 @@ button {
 	border-radius: 80px;
 	border: 0px;
 	transition: all 0.3s cubic-bezier(.55, 0.0, .28, 1.682), box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
-	background-color: @cyan_vivid_blur_15;
+	background-color: rgba(24, 152, 224, 0.15);
 	margin: 10px;
     min-width: 150px;
     min-height: 150px;
 }
 
-/* button:focus { */
-/* 	background-color: @white_blur_90; */
-/*     background-size: 15%; */
-/* 	border: 0px; */
-/* } */
-
 button:hover {
-    background-color: @cyan_vivid_blur_30;
+    background-color: rgba(24, 152, 224, 0.15);
     background-size: 16%;
 	opacity: 0.8;
     color: @white;
     margin: 30px;
     border-radius: 80px;
-    box-shadow: 0 0 10px @cyan_pure;
+    box-shadow: 0 0 10px rgba(21, 199, 251, 1);
 }
 
 /* Adjust the size of the icon or content inside the button */

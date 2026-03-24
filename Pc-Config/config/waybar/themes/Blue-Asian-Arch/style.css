@@ -1,6 +1,7 @@
-
 @import url("/home/yannick/.config/colors/global-colors.css");
-
+/* ───────────────────────────────────────────────────────────
+   GRUVBOX DARK (dein aktuelles Theme)
+   ─────────────────────────────────────────────────────────── */
 @define-color bg #282828;
 @define-color bg0 #282828;
 @define-color bg1 #3c3836;
@@ -44,9 +45,9 @@ window#waybar {
     transition-duration: 0.5s;
 }
 
-/* ───────────────────────────────────────────────
-   Alle Module 
-   ─────────────────────────────────────────────── */
+/* ───────────────────────────────────────────────────────────
+   ALLE MODULE - Einheitliches Basis-Styling
+   ─────────────────────────────────────────────────────────── */
 
 #workspaces,
 #custom-weather,
@@ -60,17 +61,17 @@ window#waybar {
 #clock.date,
 #custom-power,
 #taskbar {
-    background-color: #3f324e;
+    background-color: #1f3648;
     color: @fg;
     padding: 6px 12px;
     margin: 4px 2px;
     border-radius: 12px;
-    border: 1px solid #c64cb8;
+    border: 1px solid #1892dc;
 }
 
-/* ───────────────────────────────────────────────
-   Taskbar
-   ─────────────────────────────────────────────── */
+/* ───────────────────────────────────────────────────────────
+   TASKBAR
+   ─────────────────────────────────────────────────────────── */
 
 #taskbar {
     padding: 4px 8px;
@@ -82,7 +83,7 @@ window#waybar {
 
 #taskbar button {
     background-color: transparent;
-    color: @fg;
+    color: #16ecff;
     padding: 6px 12px;
     margin: 0 2px;
     border-radius: 8px;
@@ -90,7 +91,7 @@ window#waybar {
 }
 
 #taskbar button.active {
-    background-color: #438bb4;
+    background-color: #16ecff;
     color: @bg;
     font-weight: bold;
 }
@@ -100,9 +101,9 @@ window#waybar {
     color: @fg0;
 }
 
-/* ───────────────────────────────────────────────
+/* ───────────────────────────────────────────────────────────
    WORKSPACES
-   ─────────────────────────────────────────────── */
+   ─────────────────────────────────────────────────────────── */
 
 .modules-left > widget:first-child > #workspaces {
     margin-left: 4px;
@@ -113,7 +114,7 @@ window#waybar {
 }
 
 #workspaces button {
-    color: @fg4;
+    color: #ebdbb2;
     background-color: transparent;
     padding: 4px 12px;
     margin: 0 2px;
@@ -126,7 +127,7 @@ window#waybar {
 
 #workspaces button.active {
     color: @bg;
-    background-color: #5bc5cf;
+    background-color: #16ecff;
     font-weight: bold;
 }
 
@@ -146,18 +147,18 @@ window#waybar {
     color: @bg;
 }
 
-/* ───────────────────────────────────────────────
+/* ───────────────────────────────────────────────────────────
    RECHTE MODULE - Farben
-   ─────────────────────────────────────────────── */
+   ─────────────────────────────────────────────────────────── */
 
 /* Wetter */
 #custom-weather {
-    color: #fdf9f2;
+    color: #ebdbb2;
 }
 
 /* CPU Auslastung */
 #cpu {
-    color: #60d4cc;
+    color: #16ecff;
 }
 
 #cpu.warning {
@@ -170,7 +171,7 @@ window#waybar {
 
 /* CPU Temperatur */
 #temperature {
-    color: #d0d58e;
+    color: #ebdbb2;
 }
 
 #temperature.critical {
@@ -180,12 +181,12 @@ window#waybar {
 
 /* GPU */
 #custom-gpu {
-    color: #d0d58e;
+    color: #ebdbb2;
 }
 
 /* Netzwerk */
 #network {
-    color: #60d4cc;
+    color: #16ecff;
 }
 
 #network.disconnected {
@@ -194,7 +195,7 @@ window#waybar {
 
 /* Audio (Lautsprecher) */
 #pulseaudio {
-    color: #c3f1f9;
+    color: #ebdbb2;
 }
 
 #pulseaudio.muted {
@@ -203,7 +204,7 @@ window#waybar {
 
 /* Mikrofon */
 #pulseaudio#microphone {
-    color: #c3f1f9;
+    color: #ebdbb2;
 }
 
 #pulseaudio#microphone.muted {
@@ -212,13 +213,13 @@ window#waybar {
 
 /* Uhrzeit */
 #clock {
-    color: #60d4cc;
+    color: #16ecff;
     font-weight: bold;
 }
 
 /* Datum */
 #clock.date {
-    color: #60d4cc;
+    color: #16ecff;
     font-weight: bold;
 }
 
@@ -233,9 +234,9 @@ window#waybar {
     background-color: @red-bright;
 }
 
-/* ───────────────────────────────────────────────
+/* ───────────────────────────────────────────────────────────
    TOOLTIP
-   ─────────────────────────────────────────────── */
+   ─────────────────────────────────────────────────────────── */
 
 tooltip {
     background-color: @bg;
